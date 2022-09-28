@@ -53,11 +53,11 @@ import axios from "axios";
 export const checkoutHandler = async (amount, formValues, collectionName) => {
   const {
     data: { key },
-  } = await axios.get("https://54.250.201.101:5006/api/getkey");
+  } = await axios.get("http://54.250.201.101:5006/api/getkey");
 
   const {
     data: { order },
-  } = await axios.post("https://54.250.201.101:5006/api/checkout", {
+  } = await axios.post("http://54.250.201.101:5006/api/checkout", {
     amount,
     formValues,
     collectionName,
