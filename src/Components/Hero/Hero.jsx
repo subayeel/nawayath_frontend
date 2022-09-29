@@ -18,7 +18,7 @@ const Hero = () => {
             <Heading>TOGETHER WE CAN.</Heading>
             <Desc>Giving back through life-changing experiences.</Desc>
 
-            <RoundedBtn to="/register-option">Join Us</RoundedBtn>
+            <RoundedBtn to="/register-option">NCL-V-2022</RoundedBtn>
           </TextWrap>
         </HeroWrapper>
       </HeroContainer>

@@ -7,11 +7,13 @@ export const HeroContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background-color: #e8e9ee;
+`;
+export const HeroWrapper = styled.div`
   max-width: 1140px;
   margin-left: auto;
   margin-right: auto;
-`;
-export const HeroWrapper = styled.div`
   height: 320px;
   width: 320px;
   display: flex;
@@ -43,7 +45,6 @@ export const Desc = styled.p`
   text-align: center;
 `;
 
-
 export const RoundedBtn = styled(Link)`
   font-size: 14px;
   font-weight: 500;
@@ -59,7 +60,7 @@ export const RoundedBtn = styled(Link)`
   margin-top: 14px;
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   :hover {
     background-color: #eeeeee;
     cursor: pointer;

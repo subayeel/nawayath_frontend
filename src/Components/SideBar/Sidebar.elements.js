@@ -2,15 +2,14 @@ import styled from "styled-components";
 import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-
 export const SidebarContainer = styled.div`
   display: grid;
   position: fixed;
   align-items: center;
-  background-color: #1B1A55;
+  background-color: #161616;
   height: 100%;
-  width: 60%;
-  top: 50px;
+  width: 100%;
+  top: 0;
   right: 0;
   z-index: 999;
   opacity: ${({ isOpen }) => (isOpen ? "100%" : "0%")};
@@ -19,7 +18,18 @@ export const SidebarContainer = styled.div`
 `;
 
 export const CloseIcon = styled(FaTimes)`
-  color: #fff;
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  color: #e8e9ee;
+  top: 0;
+  right: 0;
+  padding: 14px;
+  transition: 0.2s;
+  &:hover {
+    color: #ccc;
+    cursor: pointer;
+  }
 `;
 
 export const Icon = styled.div`
@@ -40,24 +50,20 @@ export const SidebarWrapper = styled.div`
 `;
 
 export const LogoContainer = styled.div`
-height: 120px;
-width: 120px;
-border-radius:100px;
-background-color: white;
-display: flex;
-align-items: center;
-justify-content: center;
-margin: 0 auto;
->img{
-  width: 95px;
-}
-`
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: 0 auto;
+  > img {
+    width: 95px;
+  }
+`;
 
 export const SidebarMenu = styled.ul`
   display: grid;
   padding: 0;
   grid-template-columns: 1fr;
-  
+
   @media screen and (max-width: 480px) {
     grid-template-rows: repeat(6, 60px);
   }
@@ -65,26 +71,31 @@ export const SidebarMenu = styled.ul`
 
 export const SidebarLink = styled(Link)`
   display: flex;
-  color: white;
+  color: #e8e9ee;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   text-align: center;
-  font-size: 1.0rem;
+  margin: 0 14px;
+  letter-spacing: 1px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1rem;
   text-decoration: none;
   list-style: none;
-  transition: 0.2s ease-in-out;
+  transition: 0.2s;
   cursor: pointer;
-  border-top: 1px solid white;
+  border-top: 1px solid #666666;
 
   &:hover {
-    color: aliceblue;
+    color: #ccc;
   }
-  &:last-child{
-    border-bottom: 1px solid #ccc;
+  &:first-child {
+    border-top: none;
+  }
+  &:last-child {
+    border-bottom: 1px solid #666666;
   }
 `;
-
-
 
 export const RoundedBtn = styled(Link)`
   font-size: 14px;
@@ -101,13 +112,12 @@ export const RoundedBtn = styled(Link)`
   margin-top: 14px;
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   :hover {
     background-color: #eeeeee;
     cursor: pointer;
   }
 `;
-
 
 export const SidebarBtnWrap = styled.div`
   display: flex;

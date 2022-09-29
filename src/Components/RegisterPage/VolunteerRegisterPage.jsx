@@ -19,6 +19,7 @@ import {
   ConditionalContainer,
   SubmitBtn,
   FormGroup,
+  Text2,
 } from "./RegisterPage.elements";
 
 import { db } from "../../config";
@@ -245,69 +246,46 @@ const VolunteerRegisterPage = () => {
           <FieldContainer>
             <Label>
               Availability:
+              <br></br>
+              <small>
+                Please select days in which you are available for volunteering.
+              </small>
               <CheckBoxContainer>
                 <Label htmlFor="sun">
                   <CheckBox
                     type="checkbox"
-                    name="sunday"
+                    name="3/nov/2022"
                     value="yes"
                     onChange={handleDaysCheck}
                   />
-                  Sunday
+                  3-November-2022 [Thursday]
                 </Label>
                 <Label htmlFor="mon">
                   <CheckBox
                     type="checkbox"
-                    name="monday"
+                    name="4/nov/2022"
                     value="yes"
                     onChange={handleDaysCheck}
                   />
-                  Monday
+                  4-November-2022 [Friday]
                 </Label>
                 <Label htmlFor="tue">
                   <CheckBox
                     type="checkbox"
-                    name="tuesday"
+                    name="5/nov/2022"
                     value="yes"
                     onChange={handleDaysCheck}
                   />
-                  Tuesday
+                  5-November-2022 [Saturday]
                 </Label>
                 <Label htmlFor="wed">
                   <CheckBox
                     type="checkbox"
-                    name="wednesday"
+                    name="6/nov/2022"
                     value="yes"
                     onChange={handleDaysCheck}
                   />
-                  Wdnesdays
-                </Label>
-                <Label htmlFor="thu">
-                  <CheckBox
-                    type="checkbox"
-                    name="thursday"
-                    value="yes"
-                    onChange={handleDaysCheck}
-                  />
-                  Thursday
-                </Label>
-                <Label htmlFor="fri">
-                  <CheckBox
-                    type="checkbox"
-                    name="friday"
-                    value="yes"
-                    onChange={handleDaysCheck}
-                  />
-                  Friday
-                </Label>
-                <Label htmlFor="sat">
-                  <CheckBox
-                    type="checkbox"
-                    name="saturday"
-                    value="yes"
-                    onChange={handleDaysCheck}
-                  />
-                  Saturday
+                  6-November-2022 [Sunday]
                 </Label>
               </CheckBoxContainer>
             </Label>

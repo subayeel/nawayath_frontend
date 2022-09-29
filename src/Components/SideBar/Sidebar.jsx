@@ -7,7 +7,7 @@ import {
   SidebarLink,
   SidebarBtnWrap,
   SidebarMenu,
-  RoundedBtn,
+  RoundedBtn,CloseIcon,
   LogoContainer,
 } from "./Sidebar.elements";
 
@@ -15,6 +15,7 @@ const Sidebar = ({ isOpen, toggle }) => {
   const location = useLocation();
   return (
     <SidebarContainer isOpen={isOpen} toggle={toggle}>
+    <CloseIcon onClick={toggle}/>
       <SidebarWrapper>
         <LogoContainer>
           <img
