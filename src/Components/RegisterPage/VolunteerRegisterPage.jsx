@@ -60,6 +60,11 @@ const VolunteerRegisterPage = () => {
     volunteerExperience: "",
     volunteerExperienceDetails: "",
     relationEmergency: "",
+    thursday: "",
+    friday: "",
+    saturday: "",
+    sunday: "",
+    alldays: "",
   };
   const [formValues, setFormValues] = useState(initialValues);
 
@@ -78,7 +83,11 @@ const VolunteerRegisterPage = () => {
 
   //Adding days available object to formValues
   useEffect(() => {
-    setFormValues({ ...formValues, ["availability"]: daysCheckValues });
+    setFormValues({ ...formValues, ["thursday"]: daysCheckValues.thursday });
+    setFormValues({ ...formValues, ["friday"]: daysCheckValues.friday });
+    setFormValues({ ...formValues, ["saturday"]: daysCheckValues.saturday });
+    setFormValues({ ...formValues, ["sunday"]: daysCheckValues.sunday });
+    setFormValues({ ...formValues, ["alldays"]: daysCheckValues.alldays });
   }, [daysCheckValues]);
 
   //function to handle check
@@ -137,6 +146,11 @@ const VolunteerRegisterPage = () => {
         volunteerExperience: formValues.volunteerExperience,
         volunteerExperienceDetails: formValues.volunteerExperienceDetails,
         relationEmergency: formValues.relationEmergency,
+        thursday: formValues.thursday,
+        friday: formValues.friday,
+        saturday: formValues.saturday,
+        sunday: formValues.sunday,
+        alldays: formValues.alldays,
       });
       console.log("Document written with ID: ", docRef.id);
       navigate("/"); //TO DO: navigate auth succes page
@@ -251,41 +265,50 @@ const VolunteerRegisterPage = () => {
                 Please select days in which you are available for volunteering.
               </small>
               <CheckBoxContainer>
-                <Label htmlFor="sun">
+                <Label htmlFor="thursday">
                   <CheckBox
                     type="checkbox"
-                    name="3/nov/2022"
-                    value="yes"
+                    name="thursday"
+                    
                     onChange={handleDaysCheck}
                   />
                   3-November-2022 [Thursday]
                 </Label>
-                <Label htmlFor="mon">
+                <Label htmlFor="friday">
                   <CheckBox
                     type="checkbox"
-                    name="4/nov/2022"
-                    value="yes"
+                    name="friday"
+                    
                     onChange={handleDaysCheck}
                   />
                   4-November-2022 [Friday]
                 </Label>
-                <Label htmlFor="tue">
+                <Label htmlFor="saturday">
                   <CheckBox
                     type="checkbox"
-                    name="5/nov/2022"
-                    value="yes"
+                    name="saturday"
+                   
                     onChange={handleDaysCheck}
                   />
                   5-November-2022 [Saturday]
                 </Label>
-                <Label htmlFor="wed">
+                <Label htmlFor="sunday">
                   <CheckBox
                     type="checkbox"
-                    name="6/nov/2022"
-                    value="yes"
+                    name="sunday"
+                    
                     onChange={handleDaysCheck}
                   />
                   6-November-2022 [Sunday]
+                </Label>
+                <Label htmlFor="alldays">
+                  <CheckBox
+                    type="checkbox"
+                    name="alldays"
+                    
+                    onChange={handleDaysCheck}
+                  />
+                  All Days
                 </Label>
               </CheckBoxContainer>
             </Label>
