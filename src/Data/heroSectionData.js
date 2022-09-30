@@ -5,7 +5,7 @@ export const heroSectionData = {
     lightTextDesc: true,
     topLine: "Upcoming Event",
     headline: "NCL-V-2022",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id numquam eius est voluptas aspernatur modi, placeat deserunt eum harum vel?",
+    desc: "Leather ball T10 franchise based cricket tournament organized by nawayath foundation bangalore.",
     buttonLabel:"Register Now!",
     btnLink:"/register-option",
     imgStart:true,

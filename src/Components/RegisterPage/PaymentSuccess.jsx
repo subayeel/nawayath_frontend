@@ -14,10 +14,9 @@ import {
   Text3,
 } from "./RegisterPage.elements";
 
-
 const PaymentSuccess = () => {
-  let searchQuery = useSearchParams()[0]
-  const reference = searchQuery.get("reference")
+  let searchQuery = useSearchParams()[0];
+  const reference = searchQuery.get("reference");
   const name = searchQuery.get("name");
   const phone = searchQuery.get("phone");
   const amount = searchQuery.get("amount");
@@ -30,8 +29,7 @@ const PaymentSuccess = () => {
             <ImgWrap>
               <Img src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/check.png?alt=media&token=5b833cd4-760d-4a16-8738-5ebdfc86d563" />
             </ImgWrap>
-            
-            
+
             <Row>
               <Text2>Name</Text2>
               <Text3>{name}</Text3>
@@ -42,11 +40,11 @@ const PaymentSuccess = () => {
             </Row>
             <Row>
               <Text2>Amount Paid</Text2>
-              <Text3>{amount} &#8377;</Text3>
+              <Text3> &#8377;{amount}</Text3>
             </Row>
             <Row>
               <Text2>Transaction Id</Text2>
-              <Text3>{reference}</Text3>  
+              <Text3>{reference}</Text3>
             </Row>
             <BtnContainer>
               <Button to="/">Back to Homepage</Button>
