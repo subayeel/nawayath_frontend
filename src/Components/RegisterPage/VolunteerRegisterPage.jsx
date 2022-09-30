@@ -41,9 +41,7 @@ const VolunteerRegisterPage = () => {
   //handling availability check box
   const [daysCheckValues, setDaysCheckValues] = useState({
     sunday: "no",
-    monday: "no",
-    tuesday: "no",
-    wednesday: "no",
+    alldays:"no",
     thursday: "no",
     friday: "no",
     saturday: "no",
