@@ -140,7 +140,7 @@ const RegisterPage = () => {
 	//innitiating payment on condition
 	async function uploadFormData() {
 		if (Object.keys(formErrors).length === 0 && isSubmit) {
-			checkoutHandler(5, formValues, "player");
+			checkoutHandler(200, formValues, "player");
 		} else {
 			return;
 		}
