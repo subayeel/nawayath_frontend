@@ -25,7 +25,7 @@ const PaymentSuccess = () => {
       <PaymentSuccessContainer>
         <PaymentSuccessWrapper>
           <SuccessCard>
-            <SuccessText>Payment Succesful</SuccessText>
+            <SuccessText>Payment Successful</SuccessText>
             <ImgWrap>
               <Img src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/check.png?alt=media&token=5b833cd4-760d-4a16-8738-5ebdfc86d563" />
             </ImgWrap>

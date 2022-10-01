@@ -41,7 +41,7 @@ const VolunteerRegisterPage = () => {
   //handling availability check box
   const [daysCheckValues, setDaysCheckValues] = useState({
     sunday: "no",
-    alldays:"no",
+    alldays: "no",
     thursday: "no",
     friday: "no",
     saturday: "no",
@@ -95,6 +95,33 @@ const VolunteerRegisterPage = () => {
       setDaysCheckValues({ ...daysCheckValues, [name]: "yes" });
     } else {
       setDaysCheckValues({ ...daysCheckValues, [name]: "no" });
+    }
+  };
+
+  //function to handle alldays checkbox
+
+  const handleAllDaysCheck = (e) => {
+    const { name, value } = e.target;
+    if (e.target.checked === true) {
+      document.getElementById("thu").checked = true;
+      document.getElementById("fri").checked = true;
+      document.getElementById("sat").checked = true;
+      document.getElementById("sun").checked = true;
+
+      document.getElementById("thu").disabled = true;
+      document.getElementById("fri").disabled = true;
+      document.getElementById("sat").disabled = true;
+      document.getElementById("sun").disabled = true;
+    }else {
+      document.getElementById("thu").checked = false;
+      document.getElementById("fri").checked = false;
+      document.getElementById("sat").checked = false;
+      document.getElementById("sun").checked = false;
+
+      document.getElementById("thu").disabled = false;
+      document.getElementById("fri").disabled = false;
+      document.getElementById("sat").disabled = false;
+      document.getElementById("sun").disabled = false;
     }
   };
 
@@ -267,7 +294,7 @@ const VolunteerRegisterPage = () => {
                   <CheckBox
                     type="checkbox"
                     name="thursday"
-                    
+                    id="thu"
                     onChange={handleDaysCheck}
                   />
                   3-November-2022 [Thursday]
@@ -276,7 +303,7 @@ const VolunteerRegisterPage = () => {
                   <CheckBox
                     type="checkbox"
                     name="friday"
-                    
+                    id="fri"
                     onChange={handleDaysCheck}
                   />
                   4-November-2022 [Friday]
@@ -285,7 +312,7 @@ const VolunteerRegisterPage = () => {
                   <CheckBox
                     type="checkbox"
                     name="saturday"
-                   
+                    id="sat"
                     onChange={handleDaysCheck}
                   />
                   5-November-2022 [Saturday]
@@ -294,7 +321,7 @@ const VolunteerRegisterPage = () => {
                   <CheckBox
                     type="checkbox"
                     name="sunday"
-                    
+                    id="sun"
                     onChange={handleDaysCheck}
                   />
                   6-November-2022 [Sunday]
@@ -303,8 +330,7 @@ const VolunteerRegisterPage = () => {
                   <CheckBox
                     type="checkbox"
                     name="alldays"
-                    
-                    onChange={handleDaysCheck}
+                    onChange={handleAllDaysCheck}
                   />
                   All Days
                 </Label>
