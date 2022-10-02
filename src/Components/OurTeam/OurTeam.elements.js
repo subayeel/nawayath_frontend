@@ -55,9 +55,9 @@ export const MemberCardContainer = styled.div`
 `;
 
 export const MemberCardWrapper = styled.div`
-  width: 250px;
+  width: 280px;
   position: relative;
-  height: 360px;
+  height: 350px;
   margin: auto;
   background-color: #eeeeee;
   overflow: hidden;
@@ -81,14 +81,14 @@ export const TextWrap = styled.div`
 export const CardHeading = styled.p`
   margin: 0;
   display: block;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 1.1;
-  font-weight: 600;
+  
+  font-weight: 700;
+  
   text-decoration: none;
   color: #1b1a55;
-  &:hover {
-    color: black;
-  }
+  
   
 `;
 
