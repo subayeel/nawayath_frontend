@@ -54,7 +54,7 @@ export const Heading2 = styled.h3`
   font-weight: 600;
   margin: 7px 0;
   letter-spacing: 0.1px;
-  text-align: ${({ center }) => (center ? "center" : "start")};
+  text-align: center;
 `;
 
 export const InstagramIcon = styled(FaInstagram)`
