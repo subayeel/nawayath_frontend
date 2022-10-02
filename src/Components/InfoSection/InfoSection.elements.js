@@ -13,12 +13,15 @@ export const InfoContainer = styled.div`
 export const InfoWrapper = styled.div`
   display: grid;
   z-index: 1;
-  height: 560px;
+  height: 100vh;
   max-width: 1140px;
   margin-right: auto;
   margin-left: auto;
   
   justify-content: center;
+  @media screen and (max-width:768px) {
+    height: 540px;
+  }
  
 `;
 
@@ -65,7 +68,7 @@ export const Heading = styled.h1`
   margin-bottom: 24px;
   font-size: 48px;
   line-height: 1.1;
-  font-weight: 600;
+  font-weight: 700;
   color: ${({ lightText }) => (lightText ? "white" : "#2F2E41")};
 
   @media screen and (max-width: 480px) {
