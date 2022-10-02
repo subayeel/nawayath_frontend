@@ -25,6 +25,8 @@ import {
 import { db } from "../../config";
 import { addDoc, collection } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { storage } from "../../config";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 const VolunteerRegisterPage = () => {
 	//to navigate to succes page
