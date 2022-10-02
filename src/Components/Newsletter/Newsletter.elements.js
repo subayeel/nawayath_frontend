@@ -104,12 +104,12 @@ export const SignupBtn = styled.button`
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  padding: 28px 28px;
-  border-radius: 32px;
+  padding: 28px;
+  border-radius: 28px;
   outline: none;
   border: none;
   height: 28px;
-  width: 56px;
+  width: fit-content;
   color: white;
   background-color: #1b1a5a;
   margin-left:14px;
