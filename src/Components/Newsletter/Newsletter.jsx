@@ -21,7 +21,7 @@ const Newsletter = () => {
             <TextfieldContainer>
               <TextField />
               <label htmlFor="username" data-title="Email Address"></label>
-              <SignupBtn>Sign up</SignupBtn>
+              <SignupBtn>Sign Up</SignupBtn>
             </TextfieldContainer>
           </SignupContainer>
         </NewsletterWrapper>
