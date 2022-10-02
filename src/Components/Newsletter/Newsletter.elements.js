@@ -109,7 +109,7 @@ export const SignupBtn = styled.button`
   outline: none;
   border: none;
   height: 28px;
-  width: 36px;
+  width: 56px;
   color: white;
   background-color: #1b1a5a;
   margin-left:14px;
