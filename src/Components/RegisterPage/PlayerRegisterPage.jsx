@@ -142,7 +142,7 @@ const RegisterPage = () => {
 	//innitiating payment on condition
 	useEffect(()=>{
 		if (Object.keys(formErrors).length === 0 && isSubmit) {
-			checkoutHandler(1, formValues, "player");
+			checkoutHandler(200, formValues, "player");
 		}
 	},[formErrors])
 
