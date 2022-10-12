@@ -787,7 +787,7 @@ const OwnerRegisterPage = () => {
             <FieldContainer>
               <Label>
                 Upload Team logo
-                <FileInput onChange={handleImage} required />
+                <FileInput  onChange={handleImage} required />
               </Label>
             </FieldContainer>
             <FieldContainer>

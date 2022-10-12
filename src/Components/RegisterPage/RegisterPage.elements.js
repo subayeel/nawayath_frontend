@@ -163,7 +163,7 @@ export const FieldContainer = styled.div`
   }
 `;
 
-export const FileInput = styled.input.attrs({ type: "file" })`
+export const FileInput = styled.input.attrs({ type: "file",accept:"image/*" })`
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
