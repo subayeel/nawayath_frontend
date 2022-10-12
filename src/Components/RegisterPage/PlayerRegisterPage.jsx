@@ -99,7 +99,7 @@ const RegisterPage = () => {
 		e.preventDefault();
 		setFormErrors(validate(formValues));
 		setIsSubmit(true);
-		uploadFormData();
+		
 	};
 
 	//restricting image size
@@ -138,13 +138,13 @@ const RegisterPage = () => {
 	}, [formValues.playedNclBefore]);
 
 	//innitiating payment on condition
-	async function uploadFormData() {
+	useEffect(()=>{
 		if (Object.keys(formErrors).length === 0 && isSubmit) {
 			checkoutHandler(200, formValues, "player");
-		} else {
-			return;
 		}
-	}
+	},[formErrors])
+
+	
 
 	const handleTermsCheck = (e) => {
 		if (e.target.checked === true) {

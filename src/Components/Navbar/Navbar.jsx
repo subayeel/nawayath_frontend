@@ -82,7 +82,7 @@ function Navbar({ toggle, isOpen }) {
                   }
                   to="/owner-register"
                 >
-                  Owner Registeration
+                  Owner Registration
                 </NavLinks>
                 <NavLinks
                   className={
@@ -90,7 +90,7 @@ function Navbar({ toggle, isOpen }) {
                   }
                   to="/player-register"
                 >
-                  Player Registeration
+                  Player Registration
                 </NavLinks>
                 <NavLinks
                   className={
@@ -98,7 +98,7 @@ function Navbar({ toggle, isOpen }) {
                   }
                   to="/volunteer-register"
                 >
-                  Volunteer Registeration
+                  Volunteer Registration
                 </NavLinks>
               </DropdownContent>
             </DropdownContent>

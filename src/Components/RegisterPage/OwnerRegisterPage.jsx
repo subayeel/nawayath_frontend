@@ -99,7 +99,7 @@ const OwnerRegisterPage = () => {
   //innitiating payment on condition
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      checkoutHandler(5000, formValues, "owner");
+      checkoutHandler(10000, formValues, "owner");
     }
   }, [formErrors]);
 
