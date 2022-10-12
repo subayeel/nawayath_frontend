@@ -194,8 +194,8 @@ const OwnerRegisterPage = () => {
               <ol>
                 <li>
                   The ownership fees payable by the owner to the organizer for
-                  the team ownership shall be ` 50,000.00. ` 5,000.00 payable as
-                  deposit & ` 45,000.00 after confirmation from the organizing
+                  the team ownership shall be 50,000. 10,000.00 payable as
+                  deposit & 40,000 after confirmation from the organizing
                   committee.
                 </li>
                 <li>
