@@ -19,7 +19,7 @@ const Sidebar = ({ isOpen, toggle }) => {
       <SidebarWrapper>
         <LogoContainer>
           <img
-            src="https://firebasestorage.googleapis.com/v0/b/eduqate-d65f5.appspot.com/o/NF%20LOGO%201.png?alt=media&token=fc8ebfb0-eb49-43e9-81e0-5ffd28c59055"
+            src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/nc%20logo.png?alt=media&token=ba54c1fc-7bf8-44ba-bb93-da422b730434"
             alt=""
           />
         </LogoContainer>
