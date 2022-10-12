@@ -47,7 +47,7 @@ function Footer() {
 
         <Row justify="center">
           <ImgWrapper>
-            <Img src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/NF%20LOGO%201.png?alt=media&token=1545fb2d-6bbb-4e2f-8eb0-1b7ec1069819" />
+            <Img src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/nc%20logo.png?alt=media&token=ba54c1fc-7bf8-44ba-bb93-da422b730434" />
           </ImgWrapper>
         </Row>
         <Row justify="center">
@@ -60,7 +60,7 @@ function Footer() {
         </Row>
         <TextWrap>
           <Subtitle>
-            Copyright © 2022 Nawayath Foundation
+            Copyright © 2022 Nawayath Club
             <br /> All Rights Reserved.
           </Subtitle>
         </TextWrap>

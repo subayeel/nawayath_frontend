@@ -67,7 +67,7 @@ export const checkoutHandler = async (amount, formValues, collectionName) => {
     key,
     amount: order.amount,
     currency: "INR",
-    name: "Nawayath Foundation",
+    name: "Nawayath Club",
     description: "Thank You",
     image:
       "https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/NF%20LOGO%201.png?alt=media&token=1545fb2d-6bbb-4e2f-8eb0-1b7ec1069819",

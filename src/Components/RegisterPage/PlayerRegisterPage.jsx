@@ -67,6 +67,8 @@ const RegisterPage = () => {
 		sportsClub: "",
 		educationInstitute: "",
 		playerImageUrl: null,
+		shirtSize:"",
+		trouserSize:""
 	};
 	const [formValues, setFormValues] = useState(initialValues);
 	const [formErrors, setFormErrors] = useState({}); //error causing state -_-
@@ -140,7 +142,7 @@ const RegisterPage = () => {
 	//innitiating payment on condition
 	useEffect(()=>{
 		if (Object.keys(formErrors).length === 0 && isSubmit) {
-			checkoutHandler(200, formValues, "player");
+			checkoutHandler(1, formValues, "player");
 		}
 	},[formErrors])
 
@@ -295,7 +297,7 @@ const RegisterPage = () => {
 									It’s all players’ responsibility to play fair & safe game.
 								</li>
 								<li>
-									 Nawayath Foundation with its members will take reasonable
+									 Nawayath Club with its members will take reasonable
 									precautions, they cannot be held liable or responsible for any
 									injuries to individuals. Players should take part at their own
 									risk.
@@ -303,7 +305,7 @@ const RegisterPage = () => {
 								<li>
 									It is advisable for all players to take safety measures on
 									their own for any injuries during the tournament, as Nawayath
-									Foundation will not be responsible in any way.
+									Club will not be responsible in any way.
 								</li>
 							</ol>
 						</Text2>
@@ -350,6 +352,50 @@ const RegisterPage = () => {
 									value={formValues.lastName}
 									onChange={handleChange}
 								/>
+							</Label>
+						</FieldContainer>
+						<FieldContainer>
+						<Label htmlFor="shirtSize">
+								T-Shirt Size:
+								<SelectField
+									value={formValues.shirtSize}
+									onChange={handleChange}
+									
+									name="shirtSize"
+									required
+								>
+									<option value="" disabled>
+										Select your option
+									</option>
+									<option value="XS">XS</option>
+									<option value="M">M</option>
+									<option value="L">L</option>
+									<option value="XL">XL</option>
+									<option value="XXL">XXL</option>
+									<option value="XXXL">XXXL</option>
+									
+								</SelectField>
+							</Label>
+							<Label htmlFor="trouserSize">
+								Trouser Size:
+								<SelectField
+									value={formValues.trouserSize}
+									onChange={handleChange}
+									
+									name="trouserSize"
+									required
+								>
+									<option value="" disabled>
+										Select your option
+									</option>
+									<option value="XS">XS</option>
+									<option value="M">M</option>
+									<option value="L">L</option>
+									<option value="XL">XL</option>
+									<option value="XXL">XXL</option>
+									<option value="XXXL">XXXL</option>
+									
+								</SelectField>
 							</Label>
 						</FieldContainer>
 						<FieldContainer>

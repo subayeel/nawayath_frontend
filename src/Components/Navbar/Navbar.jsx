@@ -37,7 +37,7 @@ function Navbar({ toggle, isOpen }) {
         </MobileIcon>
         <NavLogo to="/">
           <img
-            src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/NF%20LOGO%201.png?alt=media&token=1545fb2d-6bbb-4e2f-8eb0-1b7ec1069819"
+            src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/nc%20logo.png?alt=media&token=ba54c1fc-7bf8-44ba-bb93-da422b730434"
             alt=""
           />
         </NavLogo>

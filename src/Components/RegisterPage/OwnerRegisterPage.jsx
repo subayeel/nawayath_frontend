@@ -168,7 +168,7 @@ const OwnerRegisterPage = () => {
             </Heading2>
             <Text2>
               This team ownership agreement is entered into by and between
-              (“Owner”) and Nawayath Foundation (“Organizer”) for the event
+              (“Owner”) and Nawayath Club (“Organizer”) for the event
               known as The Nawayath Cricket League-V-2022 (“Event”).
             </Text2>
             <HighlitedText color="black">
