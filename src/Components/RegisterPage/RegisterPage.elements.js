@@ -267,6 +267,7 @@ export const PaymentSuccessWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  
   height: 95vh;
 `;
 export const SuccessText = styled.h1`
@@ -283,7 +284,8 @@ export const SuccessText = styled.h1`
 `;
 export const SuccessCard = styled.div`
   width: 500px;
-  border: 1px solid #ccc;
+ 
+  border-radius: 12px;
   display: flex;
   padding: 36px;
   /* align-items: center; */

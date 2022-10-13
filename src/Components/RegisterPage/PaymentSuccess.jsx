@@ -46,9 +46,13 @@ const PaymentSuccess = () => {
               <Text2>Transaction Id</Text2>
               <Text3>{reference}</Text3>
             </Row>
+
             <BtnContainer>
               <Button to="/">Back to Homepage</Button>
             </BtnContainer>
+            <Row>
+              <Text3>Please take screenshot for further reference</Text3>
+            </Row>
           </SuccessCard>
         </PaymentSuccessWrapper>
       </PaymentSuccessContainer>
