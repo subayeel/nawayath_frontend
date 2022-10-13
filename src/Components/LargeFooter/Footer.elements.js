@@ -4,7 +4,7 @@ import {
   FaInstagramSquare,
   FaTwitterSquare,
   FaFacebookSquare,
-  FaThumbsUp,
+  FaThumbsUp,FaTimes
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -39,10 +39,32 @@ export const Column = styled.div`
     margin: 10px 0;
   }
 `;
+export const CloseIcon = styled(FaTimes)`
+  color: #1b1a55;
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  right: 2%;
+  top: 5%;
+  :hover {
+    color: black;
+    cursor: pointer;
+  }
+  @media screen and (max-width:768px) {
+    width: 30px;
+  height: 30px;
+  }
+`;
+export const ModalContent = styled.div`
+  display: flex;
+
+  flex-direction: column;
+`;
 
 export const TextWrap = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 14px 0;
 `;
 export const LinkText = styled(Link)`
@@ -168,4 +190,75 @@ export const ImgWrapper = styled.div`
 export const Img = styled.img`
   width: 100%;
   object-fit: cover;
+`;
+
+export const Text2 = styled.p`
+  font-size: 18px;
+  font-weight: 600;
+  color: $ccc;
+  margin: 3px 0;
+`;
+
+export const Text3 = styled.p`
+  font-size: 16px;
+  color: black;
+  margin: 4px 0;
+  text-align: ${({ start }) => (start ? "start" : "center")};
+`;
+
+export const HeadingContainer = styled.div`
+  max-width: 1140px;
+  width: 100%;
+  margin: 28px auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const Line = styled.hr`
+  flex: 3;
+  height: 1px;
+  width: 100%;
+  background-color: black;
+`;
+
+export const Heading = styled.h1`
+  color: #1b1a55;
+  flex: 3;
+  width: 100%;
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.1px;
+  text-align: center;
+`;
+
+export const Heading2 = styled.h3`
+  color: #1b1a55;
+  flex: 1;
+
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 7px 0;
+  letter-spacing: 0.1px;
+  text-align: center;
+`;
+
+
+
+export const HighlitedText = styled.p`
+  font-weight: 700;
+  font-size: 18px;
+  color: #970000;
+  text-align: center;
+`;
+
+export const ImgWrap = styled.div`
+  height: 100px;
+  width: 100px;
+  margin: 14px auto;
+  @media screen and (max-width: 768px) {
+    height: 70px;
+    width: 70px;
+  }
 `;

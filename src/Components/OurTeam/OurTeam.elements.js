@@ -47,6 +47,13 @@ export const Text2 = styled.p`
   margin: 3px 0;
 `;
 
+export const Text3 = styled.p`
+  font-size: 16px;
+  font-weight: 500;
+  color: $ccc;
+  margin: 3px 0;
+`;
+
 export const MemberCardContainer = styled.div`
   color: #2c2c2c;
   margin: 14px;
@@ -125,3 +132,17 @@ export const HScrollWrapper = styled.div`
     margin: 0;
   }
 `;
+
+export const ContactUsContainer = styled.div`
+width: 100%;
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-area: 'col1 col1';
+`
+
+export const Column1 = styled.div`
+padding: 0 7px ;
+`
+export const Column2 = styled.div`
+padding: 0 7px ;
+`

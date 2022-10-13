@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
-import { app } from "../../config";
+import { Link } from "react-router-dom";
 import {
   FieldContainer,
   FormContainer,
@@ -925,6 +925,10 @@ const OwnerRegisterPage = () => {
                 of the organising committee.
               </Label>
             </FieldContainer>
+            <Label>
+              For any queries/refunds/cancellation regarding payment Please{" "}
+              <Link to="/ourteam"> Contact us</Link>.
+            </Label>
             <SubmitBtn>Proceed to payment</SubmitBtn>
           </FormGroup>
         </FormWrapper>

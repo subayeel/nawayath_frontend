@@ -8,6 +8,10 @@ import {
   Text2,
   HeadingContainer,
   HScrollWrapper,
+  Text3,
+  ContactUsContainer,
+  Column1,
+  Column2,
 } from "./OurTeam.elements";
 
 import {
@@ -41,14 +45,66 @@ const OurTeam = () => {
             intact.It is a Nawayath multisport and activities club. The
             objective of the club is to encourage the participation of the
             community in various sports and other activities with the goal to
-            unite and strengthen the community.<br></br><br/> The Nawayath Club is
-            orchestrated under the leadership of Mr. Mohammed Muddassir Ikkery.
-            Being a former Indian International Athlete and having represented
-            India around the globe, the sheer desire to see Nawayath community
-            unite all around the world through sports, education and other
-            activities, is what Nawayath Club strives for.
+            unite and strengthen the community.<br></br>
+            <br /> The Nawayath Club is orchestrated under the leadership of Mr.
+            Mohammed Muddassir Ikkery. Being a former Indian International
+            Athlete and having represented India around the globe, the sheer
+            desire to see Nawayath community unite all around the world through
+            sports, education and other activities, is what Nawayath Club
+            strives for.
           </Text2>
           <br></br>
+          <HeadingContainer>
+            <Line></Line>
+            <Heading>Contact Us</Heading>
+            <Line></Line>
+          </HeadingContainer>
+
+          <ContactUsContainer>
+            <Column1>
+              <Text2> Bangaluru</Text2>
+              <ol>
+                <li>
+                  <Text3>Ahmed waqas</Text3>
+                  <Text3>+91 73385 24232</Text3>
+                </li>
+                <li>
+                  <Text3>Mohammed Naite</Text3>
+                  <Text3>+91 99459 59128</Text3>
+                </li>
+                <li>
+                  <Text3>Syed Ahmed</Text3>
+                  <Text3>+91 99007 58490</Text3>
+                </li>
+                <li>
+                  <Text3>Hamood Suhail</Text3>
+                  <Text3>+91 87923 00142</Text3>
+                </li>
+              </ol>
+            </Column1>
+            <Column2>
+              <Text2> Bhatkal</Text2>
+              <ol>
+                <li>
+                  <Text3>Akhnas Gawai</Text3>
+                  <Text3>+91 96117 67705</Text3>
+                </li>
+                <li>
+                  <Text3>Abdulla Subayeel</Text3>
+                  <Text3>+91 97407 30152</Text3>
+                </li>
+                <li>
+                  <Text3>Mohammed Maazin</Text3>
+                  <Text3>+91 96201 80635</Text3>
+                </li>
+                <li>
+                  <Text3>Mohammed Amaan</Text3>
+                  <Text3>+91 99722 97513</Text3>
+                </li>
+              </ol>
+            </Column2>
+          </ContactUsContainer>
+
           <HeadingContainer>
             <Heading>Meet our Members </Heading>
           </HeadingContainer>
