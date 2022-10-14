@@ -110,7 +110,13 @@ const OwnerRegisterPage = () => {
       !values.managerContactNumber
     ) {
       errors.mobileNumber = "Invalid Mobile Number";
-      alert("Invalid Mobile Number");
+      alert("Invalid Manager Mobile Number");
+    } else if (
+      values.ownerContactNumber.length !== 10 ||
+      !values.ownerContactNumber
+    ) {
+      errors.mobileNumber = "Invalid Mobile Number";
+      alert("Invalid Owner Mobile Number");
     }
     return errors;
   };
@@ -168,8 +174,8 @@ const OwnerRegisterPage = () => {
             </Heading2>
             <Text2>
               This team ownership agreement is entered into by and between
-              (“Owner”) and Nawayath Club (“Organizer”) for the event
-              known as The Nawayath Cricket League-V-2022 (“Event”).
+              (“Owner”) and Nawayath Club (“Organizer”) for the event known as
+              The Nawayath Cricket League-V-2022 (“Event”).
             </Text2>
             <HighlitedText color="black">
               There are some laws which place the responsibility for the
@@ -272,7 +278,7 @@ const OwnerRegisterPage = () => {
                 </li>
               </ol>
             </Text3>
-            
+
             <Heading2>I. GENERAL RULES OF THE LEAGUE</Heading2>
             <Text2>
               <ol>
@@ -787,7 +793,7 @@ const OwnerRegisterPage = () => {
             <FieldContainer>
               <Label>
                 Upload Team logo
-                <FileInput  onChange={handleImage} required />
+                <FileInput onChange={handleImage} required />
               </Label>
             </FieldContainer>
             <FieldContainer>
@@ -902,7 +908,6 @@ const OwnerRegisterPage = () => {
                   name="managerPresentAddress"
                   value={formValues.managerPresentAddress}
                   onChange={handleChange}
-                  
                 />
               </Label>
             </FieldContainer>
