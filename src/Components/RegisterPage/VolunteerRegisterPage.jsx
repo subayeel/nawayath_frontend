@@ -277,6 +277,8 @@ const VolunteerRegisterPage = () => {
                 <option value="student">Student</option>
                 <option value="graduate">Graduate</option>
                 <option value="post-graduate">Post Graduate</option>
+                <option value="working">Working</option>
+                <option value="sel-emplloyed">Self-Employed</option>
               </SelectField>
             </Label>
             <Label>
@@ -315,7 +317,7 @@ const VolunteerRegisterPage = () => {
                     id="thu"
                     onChange={handleDaysCheck}
                   />
-                  3-November-2022 [Thursday]
+                  Thursday
                 </Label>
                 <Label htmlFor="friday">
                   <CheckBox
@@ -324,7 +326,7 @@ const VolunteerRegisterPage = () => {
                     id="fri"
                     onChange={handleDaysCheck}
                   />
-                  4-November-2022 [Friday]
+                 Friday
                 </Label>
                 <Label htmlFor="saturday">
                   <CheckBox
@@ -333,7 +335,7 @@ const VolunteerRegisterPage = () => {
                     id="sat"
                     onChange={handleDaysCheck}
                   />
-                  5-November-2022 [Saturday]
+                  Saturday
                 </Label>
                 <Label htmlFor="sunday">
                   <CheckBox
@@ -342,7 +344,7 @@ const VolunteerRegisterPage = () => {
                     id="sun"
                     onChange={handleDaysCheck}
                   />
-                  6-November-2022 [Sunday]
+                 Sunday
                 </Label>
                 <Label htmlFor="alldays">
                   <CheckBox
