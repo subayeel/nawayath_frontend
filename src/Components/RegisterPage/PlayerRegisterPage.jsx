@@ -549,39 +549,37 @@ const RegisterPage = () => {
               </Label>
               <Label name="occupation">
                 Occupation?
-                <FieldContainer>
-                  <CheckBoxContainer>
-                    <Label htmlFor="student">
-                      <RadioBtn
-                        onChange={handleChange}
-                        name="occupation"
-                        value="student"
-                        required
-                        id="student"
-                      />
-                      Student
-                    </Label>
+                <CheckBoxContainer>
+                  <Label htmlFor="student">
+                    <RadioBtn
+                      onChange={handleChange}
+                      name="occupation"
+                      value="student"
+                      required
+                      id="student"
+                    />
+                    Student
+                  </Label>
 
-                    <Label htmlFor="employee">
-                      <RadioBtn
-                        onChange={handleChange}
-                        name="occupation"
-                        value="employee"
-                        id="employee"
-                      />
-                      Employee
-                    </Label>
-                    <Label htmlFor="self-employed">
-                      <RadioBtn
-                        onChange={handleChange}
-                        name="occupation"
-                        value="self-employed"
-                        id="self-employed"
-                      />
-                      Self-Employed
-                    </Label>
-                  </CheckBoxContainer>
-                </FieldContainer>
+                  <Label htmlFor="employee">
+                    <RadioBtn
+                      onChange={handleChange}
+                      name="occupation"
+                      value="employee"
+                      id="employee"
+                    />
+                    Employee
+                  </Label>
+                  <Label htmlFor="self-employed">
+                    <RadioBtn
+                      onChange={handleChange}
+                      name="occupation"
+                      value="self-employed"
+                      id="self-employed"
+                    />
+                    Self-Employed
+                  </Label>
+                </CheckBoxContainer>
               </Label>
             </FieldContainer>
             <FieldContainer>
@@ -627,10 +625,12 @@ const RegisterPage = () => {
                 of the organising committee.
               </Label>
             </FieldContainer>
-            <Label>
-              For any queries/refunds/cancellation regarding payment Please{" "}
-              <Link to="/ourteam"> Contact us</Link>.
-            </Label>
+            <FieldContainer>
+              <Label>
+                For any queries/refunds/cancellation regarding payment Please{" "}
+                <Link to="/ourteam"> Contact us</Link>.
+              </Label>
+            </FieldContainer>
 
             <SubmitBtn>Proceed to payment</SubmitBtn>
           </FormGroup>
