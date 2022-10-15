@@ -114,15 +114,15 @@ const RegisterPage = () => {
         storage,
         `/playerImages/${e.target.files[0].name}`
       );
-      const uploadTask = uploadBytesResumable(storageRef, e.target.files[0]);
+      const uploadTask =  uploadBytesResumable(storageRef, e.target.files[0]);
       uploadTask.on(
         "state_changed",
         (snapshot) => {},
         (error) => {
           console.log(error);
         },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+        async () => {
+          await getDownloadURL(uploadTask.snapshot.ref).then((url) => {
             setFormValues({ ...formValues, ["playerImageUrl"]: url });
           });
         }
@@ -175,6 +175,9 @@ const RegisterPage = () => {
     } else if (values.mobileNumber.length < 10) {
       errors.mobileNumber = "Invalid Mobile Number";
       alert("Invalid Mobile Number");
+    } else if (values.playerImageUrl === null){
+      errors.playerImageUrl = "Invalid Image type";
+      alert("Invalid Image type");
     }
     return errors;
   };
