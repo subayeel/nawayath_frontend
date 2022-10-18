@@ -1,5 +1,7 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
+
+import { collection, query, where, getDocs } from "firebase/firestore";
 import {
   PaymentSuccessContainer,
   PaymentSuccessWrapper,
@@ -13,13 +15,40 @@ import {
   Row,
   Text3,
 } from "./RegisterPage.elements";
+import { db } from "../../config";
+import { useEffect, useState } from "react";
 
 const PaymentSuccess = () => {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   let searchQuery = useSearchParams()[0];
   const reference = searchQuery.get("reference");
-  const name = searchQuery.get("name");
-  const phone = searchQuery.get("phone");
+
   const amount = searchQuery.get("amount");
+
+  async function getPlayerDetails() {
+    const playerDetailsRef = collection(db, "playerDetails");
+    const q = query(
+      playerDetailsRef,
+      where("razorpay_payment_id", "==", reference)
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      var name =
+        doc.data().firstName +
+        " " +
+        doc.data().middleName +
+        " " +
+        doc.data().lastName;
+      setName(name);
+      setPhone(doc.data().mobileNumber);
+    });
+  }
+  useEffect(async () => {
+    getPlayerDetails();
+  }, []);
+  console.log(phone);
+
   return (
     <>
       <PaymentSuccessContainer>
