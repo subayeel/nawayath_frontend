@@ -144,6 +144,7 @@ const RegisterPage = () => {
   //innitiating payment on condition
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
+      uploadDummyForm()
       checkoutHandler(200, formValues, "player");
     }
   }, [formErrors]);
@@ -668,7 +669,7 @@ const RegisterPage = () => {
               </Label>
             </FieldContainer>
 
-            <SubmitBtn onClick={uploadDummyForm}>Proceed to payment</SubmitBtn>
+            <SubmitBtn >Proceed to payment</SubmitBtn>
           </FormGroup>
         </FormWrapper>
       </FormContainer>
