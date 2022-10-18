@@ -14,6 +14,7 @@ import {
   Text2,
   Row,
   Text3,
+  HighlitedGreenText,
 } from "./RegisterPage.elements";
 import { db } from "../../config";
 import { useEffect, useState } from "react";
@@ -58,15 +59,13 @@ const PaymentSuccess = () => {
             <ImgWrap>
               <Img src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/check.png?alt=media&token=5b833cd4-760d-4a16-8738-5ebdfc86d563" />
             </ImgWrap>
-
-            <Row>
-              <Text2>Name</Text2>
-              <Text3>{name}</Text3>
-            </Row>
-            <Row>
-              <Text2>Phone</Text2>
-              <Text3>{phone}</Text3>
-            </Row>
+            
+              <HighlitedGreenText>Email Sent!</HighlitedGreenText>
+            
+            
+            
+              <HighlitedGreenText>Please check your email for Payment reciept</HighlitedGreenText>
+            
             <Row>
               <Text2>Amount Paid</Text2>
               <Text3> &#8377;{amount}</Text3>

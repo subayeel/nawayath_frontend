@@ -358,6 +358,14 @@ export const HighlitedText = styled.p`
   text-align: center;
 `;
 
+export const HighlitedGreenText = styled.p`
+  font-weight: 600;
+  font-size: 18px;
+  color: green;
+  margin:7px;
+  text-align: center;
+`;
+
 export const CloseIcon = styled(FaTimes)`
   color: #1b1a55;
   width: 36px;
