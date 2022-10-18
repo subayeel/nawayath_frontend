@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { addDoc, collection } from "firebase/firestore";
+import { db} from "../../config"
 import {
   FormContainer,
   FormGroup,
@@ -114,7 +116,7 @@ const RegisterPage = () => {
         storage,
         `/playerImages/${e.target.files[0].name}`
       );
-      const uploadTask =  uploadBytesResumable(storageRef, e.target.files[0]);
+      const uploadTask = uploadBytesResumable(storageRef, e.target.files[0]);
       uploadTask.on(
         "state_changed",
         (snapshot) => {},
@@ -175,7 +177,7 @@ const RegisterPage = () => {
     } else if (values.mobileNumber.length < 10) {
       errors.mobileNumber = "Invalid Mobile Number";
       alert("Invalid Mobile Number");
-    } else if (values.playerImageUrl === null){
+    } else if (values.playerImageUrl === null) {
       errors.playerImageUrl = "Invalid Image type";
       alert("Invalid Image type");
     }
@@ -186,6 +188,37 @@ const RegisterPage = () => {
   }
   function closeModal() {
     setModalState(false);
+  }
+
+  async function  uploadDummyForm(){
+    try {
+      const docRef = await addDoc(collection(db, "playerDummyDetails"), {
+        firstName: formValues.firstName,
+        middleName: formValues.middleName,
+        lastName: formValues.lastName,
+        mobileNumber: formValues.mobileNumber,
+        dob: formValues.dob,
+        nativeLoc: formValues.nativeLoc,
+        playerRole: formValues.playerRole,
+        playedNclBefore: formValues.playedNclBefore,
+        playedNcl1: formValues.playedNcl1,
+        playedNcl2: formValues.playedNcl2,
+        playedNcl3: formValues.playedNcl3,
+        playedNcl4: formValues.playedNcl4,
+        occupation: formValues.occupation,
+        sportsClub: formValues.sportsClub,
+        educationInstitute: formValues.educationInstitute,
+        playerImageUrl: formValues.playerImageUrl,
+        shirtSize: formValues.shirtSize,
+        trouserSize: formValues.trouserSize,
+        nawayathResidentBanglore: formValues.nawayathResidentBanglore,
+        razorpay_payment_id: "",
+      });
+      console.log("Document written with ID: ", docRef.id);
+      
+    } catch (error) {
+      console.log("UNSUCCESSFULL: " + error);
+    }
   }
   const customStyles = {
     content: {
@@ -635,7 +668,7 @@ const RegisterPage = () => {
               </Label>
             </FieldContainer>
 
-            <SubmitBtn>Proceed to payment</SubmitBtn>
+            <SubmitBtn onClick={uploadDummyForm}>Proceed to payment</SubmitBtn>
           </FormGroup>
         </FormWrapper>
       </FormContainer>
