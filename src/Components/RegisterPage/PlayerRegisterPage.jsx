@@ -273,7 +273,7 @@ const RegisterPage = () => {
             </ImgWrap>
             <Text3>Player Registration has been Closed!</Text3>
             <HighlitedText>
-              <Button onClick={closePlayerModal}>Ok</Button>
+              <Button onClick={closePlayerModal} to="/">Ok</Button>
             </HighlitedText>
           </ModalContent>
         </Modal>
