@@ -163,7 +163,10 @@ export const FieldContainer = styled.div`
   }
 `;
 
-export const FileInput = styled.input.attrs({ type: "file",accept:"image/*" })`
+export const FileInput = styled.input.attrs({
+  type: "file",
+  accept: "image/*",
+})`
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -267,7 +270,7 @@ export const PaymentSuccessWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   height: 95vh;
 `;
 export const SuccessText = styled.h1`
@@ -284,7 +287,7 @@ export const SuccessText = styled.h1`
 `;
 export const SuccessCard = styled.div`
   width: 500px;
- 
+
   border-radius: 12px;
   display: flex;
   padding: 36px;
@@ -356,13 +359,15 @@ export const HighlitedText = styled.p`
   font-size: 18px;
   color: #970000;
   text-align: center;
+  justify-content: center;
+  display: flex;
 `;
 
 export const HighlitedGreenText = styled.p`
   font-weight: 600;
   font-size: 18px;
   color: green;
-  margin:7px;
+  margin: 7px;
   text-align: center;
 `;
 
@@ -377,8 +382,20 @@ export const CloseIcon = styled(FaTimes)`
     color: black;
     cursor: pointer;
   }
-  @media screen and (max-width:768px) {
+  @media screen and (max-width: 768px) {
     width: 30px;
-  height: 30px;
+    height: 30px;
+  }
+`;
+
+export const Text4 = styled.p`
+  font-size: 22px;
+  font-weight: 600;
+  color: #811515;
+  margin: 4px 0;
+  text-align: ${({ start }) => (start ? "start" : "center")};
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    font-weight: 400;
   }
 `;

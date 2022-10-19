@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Modal from "react-modal";
 import "./Nav.css";
 import {
   Nav,
@@ -10,14 +11,19 @@ import {
   NavLinks,
   NavDropDown,
   DropdownContent,
-  Text,
-  AngleIcon,
   DropDownItem,
   BarsIcon,
   CloseIcon,
+  Text3,
+  Img,
+  ImgWrap,
+  ModalContent,
+  HighlitedText,
 } from "./Navbar.elements";
 
 import { useLocation, useNavigate } from "react-router-dom";
+import { Button } from "../RegisterPage/RegisterPage.elements";
+import { IconContext } from "react-icons";
 
 function Navbar({ toggle, isOpen }) {
   const navigate = useNavigate();
@@ -29,12 +35,50 @@ function Navbar({ toggle, isOpen }) {
   function handleClick() {
     setHome(!isHome);
   }
+
+  // to open the rules modal
+  const [modalState, setModalState] = useState(false);
+  function openModal() {
+    setModalState(true);
+  }
+  function closeModal() {
+    setModalState(false);
+  }
+  const customStyles = {
+    content: {
+      width: "40%",
+      height: "40%",
+      position: "absolute",
+      overflow: "hidden",
+      left: "50%",
+      top: "55%",
+      transform: "translate(-50%, -50%)",
+    },
+  };
   return (
     <Nav>
       <NavbarContainer>
         <MobileIcon onClick={toggle}>
           {isOpen ? <CloseIcon /> : <BarsIcon />}
         </MobileIcon>
+        <Modal
+          style={customStyles}
+          onRequestClose={closeModal}
+          handleState={setModalState}
+          isOpen={modalState}
+        >
+          <ModalContent>
+            <CloseIcon onClick={closeModal} />
+
+            <ImgWrap>
+              <Img src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/closed.png?alt=media&token=0957f6f3-a13d-4399-8d94-d69a91e51e3b" />
+            </ImgWrap>
+            <Text3>Player Registration has been Closed!</Text3>
+            <HighlitedText>
+              <Button onClick={closeModal}>Ok</Button>
+            </HighlitedText>
+          </ModalContent>
+        </Modal>
         <NavLogo to="/">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/nc%20logo.png?alt=media&token=ba54c1fc-7bf8-44ba-bb93-da422b730434"
@@ -85,10 +129,11 @@ function Navbar({ toggle, isOpen }) {
                   Owner Registration
                 </NavLinks>
                 <NavLinks
+                  onClick={() => setModalState(true)}
                   className={
                     location.pathname === "/player-register" ? "active" : ""
                   }
-                  to="/player-register"
+                  to=""
                 >
                   Player Registration
                 </NavLinks>

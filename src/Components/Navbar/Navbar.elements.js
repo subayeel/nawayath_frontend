@@ -55,9 +55,18 @@ export const BarsIcon = styled(FaBars)`
 `;
 
 export const CloseIcon = styled(FaTimes)`
-  color: white;
-  &:hover {
-    color: #ccc;
+  color: #1b1a55;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  right: 0;
+  :hover {
+    color: black;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 768px) {
+    width: 18px;
+    height: 18px;
   }
 `;
 
@@ -129,14 +138,13 @@ export const DropdownContent = styled.div`
   width: 240px;
   /* margin-left: ${(props) => props.lmargin}; */
   background-color: #1b1a55;
-  > a{
+  > a {
     padding: 7px;
-    &:hover{
+    &:hover {
       background-color: black;
       color: white;
     }
   }
-  
 `;
 
 export const DropDownItem = styled.div`
@@ -209,4 +217,75 @@ export const Text = styled.p`
 export const Line = styled.hr`
   color: #1b1a55;
   margin: 0;
+`;
+
+export const Heading = styled.h1`
+  color: #1b1a55;
+  flex: 3;
+  width: 100%;
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.1px;
+  text-align: center;
+`;
+
+export const Heading2 = styled.h3`
+  color: #1b1a55;
+  flex: 1;
+
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 7px 0;
+  letter-spacing: 0.1px;
+  text-align: center;
+`;
+
+export const HighlitedText = styled.p`
+  font-weight: 700;
+  font-size: 18px;
+  color: #970000;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+`;
+
+export const ImgWrap = styled.div`
+  height: 120px;
+  width: 120px;
+  margin: 14px auto;
+  @media screen and (max-width: 768px) {
+    height: 70px;
+    width: 70px;
+  }
+`;
+export const Img = styled.img`
+  width: 100%;
+  object-fit: cover;
+`;
+
+export const Text3 = styled.p`
+  font-size: 22px;
+  font-weight: 600;
+  color: #811515;
+  margin: 4px 0;
+  text-align: ${({ start }) => (start ? "start" : "center")};
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    font-weight: 400;
+  }
+`;
+
+export const ModalContent = styled.div`
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.85),
+      rgba(255, 255, 255, 0.85)
+    ),
+    url(https://firebasestorage.googleapis.com/v0/b/eduqate-d65f5.appspot.com/o/cricket.png?alt=media&token=2307d126-3a11-40ff-afa6-23c2727ff5fe);
+    background-size:contain;
+  display: flex;
+  position: relative;
+  flex-direction: column;
 `;

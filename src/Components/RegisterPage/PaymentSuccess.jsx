@@ -1,7 +1,13 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 
-import { collection, query, where, getDocs } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  
+} from "firebase/firestore";
 import {
   PaymentSuccessContainer,
   PaymentSuccessWrapper,
@@ -27,28 +33,13 @@ const PaymentSuccess = () => {
 
   const amount = searchQuery.get("amount");
 
-  async function getPlayerDetails() {
-    const playerDetailsRef = collection(db, "playerDetails");
-    const q = query(
-      playerDetailsRef,
-      where("razorpay_payment_id", "==", reference)
-    );
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      var name =
-        doc.data().firstName +
-        " " +
-        doc.data().middleName +
-        " " +
-        doc.data().lastName;
-      setName(name);
-      setPhone(doc.data().mobileNumber);
-    });
-  }
-  useEffect(async () => {
-    getPlayerDetails();
-  }, []);
-  console.log(phone);
+  // async function getPlayerCount() {
+  //   const collectionRef = collection(db,"playerDetails");
+  //   const snapshot = await collectionRef.count().get();
+
+  //   console.log(snapshot.data.count);
+  // }
+  // getPlayerCount();
 
   return (
     <>
@@ -59,13 +50,13 @@ const PaymentSuccess = () => {
             <ImgWrap>
               <Img src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/check.png?alt=media&token=5b833cd4-760d-4a16-8738-5ebdfc86d563" />
             </ImgWrap>
-            
-              <HighlitedGreenText>Email Sent!</HighlitedGreenText>
-            
-            
-            
-              <HighlitedGreenText>Please check your email for Payment reciept</HighlitedGreenText>
-            
+
+            <HighlitedGreenText>Email Sent!</HighlitedGreenText>
+
+            <HighlitedGreenText>
+              Please check your email for Payment reciept
+            </HighlitedGreenText>
+
             <Row>
               <Text2>Amount Paid</Text2>
               <Text3> &#8377;{amount}</Text3>

@@ -9,7 +9,7 @@ import {
   Button,TextWrap,BtnContainer
 } from "./RegisterPage.elements";
 
-const RegisterCard = ({ heading, imgUrl, btnLink, btnText }) => {
+const RegisterCard = ({ heading, imgUrl, btnLink, btnText, btnDisabled,setModalState }) => {
   return (
     <>
       <RegisterCardContainer>
@@ -20,12 +20,13 @@ const RegisterCard = ({ heading, imgUrl, btnLink, btnText }) => {
           <TextWrap>
           <Heading2>{heading}</Heading2>
           <BtnContainer>
-            <Button to={btnLink}>
+            <Button onClick={btnDisabled?()=>setModalState(true):""}  >
             {btnText}
             <FaAngleRight />
           </Button>
           </BtnContainer>
           
+          <p></p>
           </TextWrap>
         </RegisterCardWrapper>
       </RegisterCardContainer>

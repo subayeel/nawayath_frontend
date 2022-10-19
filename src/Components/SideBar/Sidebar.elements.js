@@ -135,3 +135,51 @@ export const SidebarRoute = styled(Link)`
     cursor: pointer;
   }
 `;
+
+
+export const ImgWrap = styled.div`
+  height: 120px;
+  width: 120px;
+  margin: 14px auto;
+  @media screen and (max-width: 768px) {
+    height: 70px;
+    width: 70px;
+  }
+`;
+export const Img = styled.img`
+  width: 100%;
+  object-fit: cover;
+`;
+
+export const Text3 = styled.p`
+  font-size: 22px;
+  font-weight: 600;
+  color: #811515;
+  margin: 4px 0;
+  text-align: ${({ start }) => (start ? "start" : "center")};
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    font-weight: 400;
+  }
+`;
+
+export const ModalContent = styled.div`
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.85),
+      rgba(255, 255, 255, 0.85)
+    ),
+    url(https://firebasestorage.googleapis.com/v0/b/eduqate-d65f5.appspot.com/o/cricket.png?alt=media&token=2307d126-3a11-40ff-afa6-23c2727ff5fe);
+    background-size:contain;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+`;
+export const HighlitedText = styled.p`
+  font-weight: 700;
+  font-size: 18px;
+  color: #970000;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+`;
