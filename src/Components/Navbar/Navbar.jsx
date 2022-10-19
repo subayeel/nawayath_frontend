@@ -129,11 +129,11 @@ function Navbar({ toggle, isOpen }) {
                   Owner Registration
                 </NavLinks>
                 <NavLinks
-                  // onClick={() => setModalState(true)}
+                  onClick={() => setModalState(true)}
                   className={
                     location.pathname === "/player-register" ? "active" : ""
                   }
-                  to="/player-register"
+                  to=""
                 >
                   Player Registration
                 </NavLinks>

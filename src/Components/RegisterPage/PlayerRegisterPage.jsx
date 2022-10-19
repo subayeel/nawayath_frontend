@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
 import { db} from "../../config"
 import {
@@ -41,6 +41,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import Modal from "react-modal";
 
 const RegisterPage = () => {
+  const navigate = useNavigate()
   Modal.setAppElement("#root");
   const [checkNclValues, setCheckNclValues] = useState({
     playedNcl1: "no",
@@ -142,12 +143,12 @@ const RegisterPage = () => {
   }, [formValues.playedNclBefore]);
 
   //innitiating payment on condition
-  useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      uploadDummyForm()
-      checkoutHandler(200, formValues, "player");
-    }
-  }, [formErrors]);
+  // useEffect(() => {
+  //   if (Object.keys(formErrors).length === 0 && isSubmit) {
+  //     uploadDummyForm()
+  //     checkoutHandler(200, formValues, "player");
+  //   }
+  // }, [formErrors]);
 
   const handleTermsCheck = (e) => {
     if (e.target.checked === true) {
@@ -236,12 +237,13 @@ const RegisterPage = () => {
   //new modal
   
   // to open the closed modal
-  const [playerModalState, setPlayerModalState] = useState(false);
+  const [playerModalState, setPlayerModalState] = useState(true);
   function openPlayerModal() {
-    setModalState(true);
+    setPlayerModalState(true);
   }
   function closePlayerModal() {
-    setModalState(false);
+    setPlayerModalState(false);
+    navigate("/")
   }
   const customPlayerModalStyles = {
     content: {

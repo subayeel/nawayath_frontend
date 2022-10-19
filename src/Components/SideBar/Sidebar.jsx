@@ -88,8 +88,8 @@ const Sidebar = ({ isOpen, toggle }) => {
           </SidebarLink>
           <SidebarLink
             className={location.pathname === "/player-register" ? "active" : ""}
-            // onClick={() =>{ toggle(); setModalState(true)}}
-            to="/player-register"
+            onClick={() =>{ toggle(); setModalState(true)}}
+            to=""
           >
             Player Registeration
           </SidebarLink>
