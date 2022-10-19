@@ -29,14 +29,14 @@ import {
   Heading2,
   Text3,
   HighlitedText,
-  CloseIcon,
+  CloseIcon,Button
 } from "./RegisterPage.elements";
 import { checkoutHandler } from "../../RazorPay";
 import { useState, useEffect } from "react";
 import { storage } from "../../config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
-import axios from "axios";
+
 
 import Modal from "react-modal";
 
@@ -231,9 +231,53 @@ const RegisterPage = () => {
       transform: "translate(-50%, -50%)",
     },
   };
+
+
+  //new modal
+  
+  // to open the closed modal
+  const [playerModalState, setPlayerModalState] = useState(true);
+  function openPlayerModal() {
+    setModalState(true);
+  }
+  function closePlayerModal() {
+    setModalState(false);
+  }
+  const customPlayerModalStyles = {
+    content: {
+      width: "40%",
+      height: "40%",
+      position: "absolute",
+      overflow: "hidden",
+      left: "50%",
+      top: "55%",
+      transform: "translate(-50%, -50%)",
+    },
+  };
   return (
     <>
       <FormContainer>
+      {/* Player form closed modal */}
+
+      <Modal
+          style={customPlayerModalStyles}
+          onRequestClose={closePlayerModal}
+          handleState={setPlayerModalState}
+          isOpen={playerModalState}
+        >
+          <ModalContent>
+            <CloseIcon onClick={closePlayerModal} />
+
+            <ImgWrap>
+              <Img src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/closed.png?alt=media&token=0957f6f3-a13d-4399-8d94-d69a91e51e3b" />
+            </ImgWrap>
+            <Text3>Player Registration has been Closed!</Text3>
+            <HighlitedText>
+              <Button onClick={closePlayerModal}>Ok</Button>
+            </HighlitedText>
+          </ModalContent>
+        </Modal>
+      {/* Terms and condition modal */}
         <Modal
           style={customStyles}
           onRequestClose={closeModal}
