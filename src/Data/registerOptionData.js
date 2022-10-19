@@ -4,7 +4,7 @@ export const playerRegister = {
     "https://firebasestorage.googleapis.com/v0/b/eduqate-d65f5.appspot.com/o/cricket.png?alt=media&token=2307d126-3a11-40ff-afa6-23c2727ff5fe",
   btnLink: "/player-register",
   btnText: "Register as Player",
-  btnDisabled: true,
+  btnDisabled: false,
 };
 export const ownerRegister = {
   heading: "I am the team owner",

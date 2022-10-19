@@ -142,12 +142,12 @@ const RegisterPage = () => {
   }, [formValues.playedNclBefore]);
 
   //innitiating payment on condition
-  // useEffect(() => {
-  //   if (Object.keys(formErrors).length === 0 && isSubmit) {
-  //     uploadDummyForm()
-  //     checkoutHandler(200, formValues, "player");
-  //   }
-  // }, [formErrors]);
+  useEffect(() => {
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      uploadDummyForm()
+      checkoutHandler(200, formValues, "player");
+    }
+  }, [formErrors]);
 
   const handleTermsCheck = (e) => {
     if (e.target.checked === true) {
@@ -236,7 +236,7 @@ const RegisterPage = () => {
   //new modal
   
   // to open the closed modal
-  const [playerModalState, setPlayerModalState] = useState(true);
+  const [playerModalState, setPlayerModalState] = useState(false);
   function openPlayerModal() {
     setModalState(true);
   }
