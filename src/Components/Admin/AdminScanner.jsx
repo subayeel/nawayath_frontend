@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import QrReader from "react-qr-scanner";
 
-
 //firebase
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../config";
@@ -9,7 +8,16 @@ import { db } from "../../config";
 import { MainContainer, MainWrapper } from "../Global";
 
 //stylings
-import { StyledModal,ImgWrap,Img,ModalContent,HighlitedText,CloseIcon,Text3, ScannerContainer } from "./Admin.elements";
+import {
+  StyledModal,
+  ImgWrap,
+  Img,
+  ModalContent,
+  HighlitedText,
+  CloseIcon,
+  Text3,
+  ScannerContainer,
+} from "./Admin.elements";
 import { Button } from "../RegisterPage/RegisterPage.elements";
 const AdminScanner = () => {
   const [result, setResult] = useState();
@@ -26,8 +34,7 @@ const AdminScanner = () => {
 
   //method to scan qr
   const handleScan = async (data) => {
-    if(data!== null){
-      
+    if (data !== null) {
       await getOwnerdetails(JSON.parse(data.text).paymentId);
     }
     setResult(data);
@@ -38,25 +45,17 @@ const AdminScanner = () => {
     console.log(error);
   };
   useEffect(() => {
-    
-      if (result) {
+    if (result) {
       setDataRecieved(true);
       setQrData(JSON.parse(result.text));
       console.log(JSON.parse(result.text));
-       
     }
-    
-    
   }, [result]);
 
   //qrcode stylings
   const previewStyle = {
-  
-      width: "14rem",
-      height: "14rem",
-      
-      
-    
+    width: "14rem",
+    height: "14rem",
   };
 
   //get auth user details
@@ -75,14 +74,13 @@ const AdminScanner = () => {
         setTeamName(doc.data().teamName);
         setPaymentId(doc.data().razorpay_payment_id);
         setImageUrl(doc.data().ownerTeamLogo);
-        setModalState(true)
-        
+        setModalState(true);
       }
     });
   };
 
   //handle Modal
-  const [modalState,setModalState] = useState(false)
+  const [modalState, setModalState] = useState(false);
   function openModal() {
     setModalState(true);
   }
@@ -94,42 +92,42 @@ const AdminScanner = () => {
     <>
       <MainContainer>
         <MainWrapper>
-        <StyledModal 
-          
-          onRequestClose={closeModal}
-          handleState={setModalState}
-          isOpen={modalState}
-        >
-          <ModalContent>
-            <CloseIcon onClick={closeModal} />
+          <StyledModal
+            onRequestClose={closeModal}
+            handleState={setModalState}
+            isOpen={modalState}
+          >
+            <ModalContent>
+              <CloseIcon onClick={closeModal} />
 
-            <ImgWrap>
-              <Img src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/check.png?alt=media&token=5b833cd4-760d-4a16-8738-5ebdfc86d563" />
-            </ImgWrap>
-            <Text3>Access Granted!</Text3>
-            <HighlitedText>{name}</HighlitedText>
-            <Text3>{teamName}</Text3>
-            <HighlitedText>
-              <Button onClick={closeModal} to="/access-granted">Ok</Button>
-            </HighlitedText>
-          </ModalContent>
-        </StyledModal>
-        
+              <ImgWrap>
+                <Img src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/check.png?alt=media&token=5b833cd4-760d-4a16-8738-5ebdfc86d563" />
+              </ImgWrap>
+              <Text3>Access Granted!</Text3>
+              <HighlitedText>{name}</HighlitedText>
+              <Text3>{teamName}</Text3>
+              <HighlitedText>
+                <Button onClick={closeModal} to="/access-granted">
+                  Ok
+                </Button>
+              </HighlitedText>
+            </ModalContent>
+          </StyledModal>
+
           {dataRecieved ? (
             ""
-          ) : 
-          <ScannerContainer>
-          <QrReader
+          ) : (
+            <ScannerContainer>
+              <QrReader
+                constraints={{ facingMode: "environment" }}
+                
                 delay={delay}
                 onError={handleError}
                 style={previewStyle}
                 onScan={handleScan}
-                
               />
-          </ScannerContainer>
-            
-            
-          }
+            </ScannerContainer>
+          )}
         </MainWrapper>
       </MainContainer>
     </>
@@ -137,4 +135,3 @@ const AdminScanner = () => {
 };
 
 export default AdminScanner;
-  
