@@ -114,7 +114,7 @@ export const NavLinks = styled(Link)`
   }
 `;
 
-export const NavDropDown = styled.p`
+export const NavDropDown = styled.span`
   display: flex;
   justify-content: space-around;
   color: #fff;
@@ -289,3 +289,28 @@ export const ModalContent = styled.div`
   position: relative;
   flex-direction: column;
 `;
+
+
+export const AvatarContainer = styled.div`
+display:flex;
+justify-content: center;
+align-items: center;
+`
+
+export const AvatarWrapper = styled.div`
+width: 50px;
+height: 50px;
+border-radius:100%;
+overflow: hidden;
+`
+
+export const AvatarImgWrap = styled.div`
+display:flex;
+justify-content: center;
+align-items: center;
+object-fit:cover;
+`
+
+export const AvatarImg = styled.img`
+width: 120%;
+`

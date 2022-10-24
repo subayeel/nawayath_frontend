@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
+
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { app } from "../../config";
 import "./Nav.css";
 import {
   Nav,
@@ -19,25 +22,49 @@ import {
   ImgWrap,
   ModalContent,
   HighlitedText,
+  Line,
 } from "./Navbar.elements";
+
+import Avatar from "./Avatar";
+import { authentication } from "../../config";
 
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "../RegisterPage/RegisterPage.elements";
-import { IconContext } from "react-icons";
 
-function Navbar({ toggle, isOpen }) {
+
+function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
   const navigate = useNavigate();
   const [isHome, setHome] = useState(true);
   const [rDropState, setRDropState] = useState(false);
   const [subMenuState, setSubMenu] = useState(false);
+  const [profileDropdown, setProfileDropDown] = useState(false);
   const location = useLocation();
+
+  //handle get data
+  //states for data
+  
 
   function handleClick() {
     setHome(!isHome);
   }
 
+  const handleSignOut = () => {
+    authentication
+      .signOut()
+      .then(() => {
+        // Sign-out successful.
+
+        console.log("Logged out");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
+  };
+
   // to open the rules modal
   const [modalState, setModalState] = useState(false);
+
   function openModal() {
     setModalState(true);
   }
@@ -55,6 +82,10 @@ function Navbar({ toggle, isOpen }) {
       transform: "translate(-50%, -50%)",
     },
   };
+  
+
+  //handling authentication
+
   return (
     <Nav>
       <NavbarContainer>
@@ -119,7 +150,6 @@ function Navbar({ toggle, isOpen }) {
                 onMouseLeave={() => setSubMenu(false)}
                 lmargin="48px"
               >
-                <DropDownItem></DropDownItem>
                 <NavLinks
                   className={
                     location.pathname === "/owner-register" ? "active" : ""
@@ -145,6 +175,15 @@ function Navbar({ toggle, isOpen }) {
                 >
                   Volunteer Registration
                 </NavLinks>
+                <Line />
+                <NavLinks
+                  className={
+                    location.pathname === "/owner-login" ? "active" : ""
+                  }
+                  to="/owner-login"
+                >
+                  Login as Team Owner
+                </NavLinks>
               </DropdownContent>
             </DropdownContent>
           </NavItem>
@@ -156,7 +195,30 @@ function Navbar({ toggle, isOpen }) {
               Our Team
             </NavLinks>
           </NavItem>
+          {isAuth ? (
+            <NavItem>
+              <NavDropDown
+                onMouseEnter={() => setProfileDropDown(true)}
+                onMouseLeave={() => setProfileDropDown(false)}
+              >
+                <Avatar imageUrl={imageUrl}></Avatar>
+              </NavDropDown>
+              <DropdownContent
+                state={profileDropdown}
+                onMouseEnter={() => setProfileDropDown(true)}
+                onMouseLeave={() => setProfileDropDown(false)}
+              >
+                <NavLinks to="/profile-page">Profile</NavLinks>
+                <NavLinks onClick={handleSignOut}>Logout</NavLinks>
+                
+                
+              </DropdownContent>
+            </NavItem>
+          ) : (
+            ""
+          )}
         </NavMenu>
+          {isAdmin ? <NavLinks to="/admin-scanner">Admin Panel</NavLinks> : ""}
       </NavbarContainer>
     </Nav>
   );

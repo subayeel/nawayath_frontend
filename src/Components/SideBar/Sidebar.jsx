@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import  Modal  from "react-modal";
+import Modal from "react-modal";
 import { Button } from "../RegisterPage/RegisterPage.elements";
-
 
 import {
   SidebarContainer,
@@ -19,6 +18,7 @@ import {
   ModalContent,
   HighlitedText,
 } from "./Sidebar.elements";
+import { Line } from "../Navbar/Navbar.elements";
 
 const Sidebar = ({ isOpen, toggle }) => {
   const location = useLocation();
@@ -88,7 +88,10 @@ const Sidebar = ({ isOpen, toggle }) => {
           </SidebarLink>
           <SidebarLink
             className={location.pathname === "/player-register" ? "active" : ""}
-            onClick={() =>{ toggle(); setModalState(true)}}
+            onClick={() => {
+              toggle();
+              setModalState(true);
+            }}
             to=""
           >
             Player Registeration
@@ -103,14 +106,20 @@ const Sidebar = ({ isOpen, toggle }) => {
             Volunteer Registeration
           </SidebarLink>
           <SidebarLink
-            className={
-              location.pathname === "/volunteer-register" ? "active" : ""
-            }
+            className={location.pathname === "/ourteam" ? "active" : ""}
             onClick={toggle}
             to="/ourteam"
           >
             Meet Our Team
           </SidebarLink>
+
+          <Button
+            className={location.pathname === "/owner-login" ? "active" : ""}
+            onClick={toggle}
+            to="/owner-login"
+          >
+            Login as Owner
+          </Button>
         </SidebarMenu>
       </SidebarWrapper>
     </SidebarContainer>

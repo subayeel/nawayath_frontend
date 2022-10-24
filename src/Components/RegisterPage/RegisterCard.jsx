@@ -6,10 +6,22 @@ import {
   RegisterCardWrapper,
   ImgWrapper,
   Img,
-  Button,TextWrap,BtnContainer
+  Button,
+  TextWrap,
+  BtnContainer,
 } from "./RegisterPage.elements";
 
-const RegisterCard = ({ heading, imgUrl, btnLink, btnText, btnDisabled,setModalState }) => {
+const RegisterCard = ({
+  heading,
+  imgUrl,
+  registerBtnLink,
+  btnText,
+  btnDisabled,
+  setModalState,
+  loginBtn,
+  loginBtnText,
+  loginBtnLink
+}) => {
   return (
     <>
       <RegisterCardContainer>
@@ -18,15 +30,24 @@ const RegisterCard = ({ heading, imgUrl, btnLink, btnText, btnDisabled,setModalS
             <Img src={imgUrl} />
           </ImgWrapper>
           <TextWrap>
-          <Heading2>{heading}</Heading2>
-          <BtnContainer>
-            <Button onClick={btnDisabled?()=>setModalState(true):""}  >
-            {btnText}
-            <FaAngleRight />
-          </Button>
-          </BtnContainer>
-          
-          <p></p>
+            <Heading2>{heading}</Heading2>
+            <BtnContainer>
+              <Button to={registerBtnLink} onClick={btnDisabled ? () => setModalState(true) : ""}>
+                {btnText}
+                <FaAngleRight />
+              </Button>
+            </BtnContainer>
+            {loginBtn ? (
+              <BtnContainer>
+                <Button to={loginBtnLink} onClick={btnDisabled ? () => setModalState(true) : ""}>
+                  {loginBtnText}
+                  <FaAngleRight />
+                </Button>
+              </BtnContainer>
+            ) : (
+              ""
+            )}
+            <p></p>
           </TextWrap>
         </RegisterCardWrapper>
       </RegisterCardContainer>

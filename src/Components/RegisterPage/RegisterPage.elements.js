@@ -212,7 +212,7 @@ export const RegisterOptionWrapper = styled.div`
 export const RegisterCardContainer = styled.div`
   display: block;
   width: 300px;
-  height: 370px;
+  
   margin: 14px;
   border-radius: 5px;
   border: 1px solid #ccc;
