@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {QrReader} from "react-qr-reader";
+import QrReader from "react-qr-reader";
 
 //firebase
 import { collection, query, where, getDocs } from "firebase/firestore";
@@ -32,13 +32,18 @@ const AdminScanner = () => {
 
   const [isVerified, setVerified] = useState(false);
 
+  const [selected, setSelected] = useState("environment");
   //method to scan qr
-  const handleScan = async (data) => {
-    if (data !== null) {
-      await getOwnerdetails(JSON.parse(data.text).paymentId);
-    }
-    setResult(data);
-    console.log("scanning");
+  const handleScan = async (scanData) => {
+    
+      setResult((scanData));
+
+      // await getOwnerdetails(JSON.parse(result.text).paymentId);
+    
+
+    
+     console.log((scanData))
+    
   };
 
   const handleError = (error) => {
@@ -47,8 +52,7 @@ const AdminScanner = () => {
   useEffect(() => {
     if (result) {
       setDataRecieved(true);
-      setQrData(JSON.parse(result.text));
-      console.log(JSON.parse(result.text));
+      getOwnerdetails(JSON.parse(result).paymentId)
     }
   }, [result]);
 
@@ -119,14 +123,22 @@ const AdminScanner = () => {
           ) : (
             <ScannerContainer>
               <QrReader
-                constraints={{ facingMode: "environment" }}
+                facingMode={selected}
                 delay={delay}
                 onError={handleError}
                 style={previewStyle}
-                onResult={handleScan}
+                onScan={handleScan}
               />
             </ScannerContainer>
           )}
+          <select
+            onChange={(e) => {
+              setSelected(e.target.value);
+            }}
+          >
+            <option value={"environment"}>Back-Camera</option>
+            <option value={"user"}>Front-Camera</option>
+          </select>
         </MainWrapper>
       </MainContainer>
     </>
