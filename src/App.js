@@ -58,10 +58,13 @@ function App() {
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-        if (user.phoneNumber === "+919740730152") {
+        if (user.phoneNumber === "+919663786796" ||user.phoneNumber === "+919740730152") {
           setAdmin(true);
+        }else{
+          setAdmin(false);
         }
         // User is signed in.
+        
         setAuth(true);
         setPhone(user.phoneNumber);
         await getOwnerdetails(user.phoneNumber);
