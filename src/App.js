@@ -60,7 +60,7 @@ function App() {
       if (user) {
         if (
           user.phoneNumber === "+919663786796" ||
-          user.phoneNumber === "+919740730152"
+          user.phoneNumber === "+919611767705"
         ) {
           setAdmin(true);
         } else {
