@@ -87,7 +87,6 @@ const AdminScanner = () => {
   function closeModal() {
     setModalState(false);
   }
-  
 
   return (
     <>
@@ -120,8 +119,9 @@ const AdminScanner = () => {
           ) : (
             <ScannerContainer>
               <QrReader
-                facingMode={"rear"}
-                
+                constraints={{
+                  facingMode: "envorinment",
+                }}
                 delay={delay}
                 onError={handleError}
                 style={previewStyle}
