@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import QrReader from "react-qr-scanner";
+import {QrReader} from "react-qr-reader";
 
 //firebase
 import { collection, query, where, getDocs } from "firebase/firestore";
@@ -21,7 +21,7 @@ import {
 import { Button } from "../RegisterPage/RegisterPage.elements";
 const AdminScanner = () => {
   const [result, setResult] = useState();
-  const [delay, setDelay] = useState();
+  const [delay, setDelay] = useState(300);
   const [dataRecieved, setDataRecieved] = useState(false);
   const [qrData, setQrData] = useState();
 
@@ -119,11 +119,11 @@ const AdminScanner = () => {
           ) : (
             <ScannerContainer>
               <QrReader
-                facingMode="rear"
+                constraints={{ facingMode: "environment" }}
                 delay={delay}
                 onError={handleError}
                 style={previewStyle}
-                onScan={handleScan}
+                onResult={handleScan}
               />
             </ScannerContainer>
           )}
