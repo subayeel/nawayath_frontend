@@ -119,9 +119,7 @@ const AdminScanner = () => {
           ) : (
             <ScannerContainer>
               <QrReader
-                constraints={{
-                  facingMode: "rear",
-                }}
+                facingMode="rear"
                 delay={delay}
                 onError={handleError}
                 style={previewStyle}
