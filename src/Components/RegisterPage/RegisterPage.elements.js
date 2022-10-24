@@ -239,6 +239,7 @@ export const Img = styled.img`
 export const Button = styled(Link)`
   padding: 12px 24px;
   color: white;
+  margin: auto;
   background-color: #1b1a55;
   border-radius: 28px;
   width: 200px;

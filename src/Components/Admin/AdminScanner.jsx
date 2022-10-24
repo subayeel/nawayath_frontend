@@ -19,7 +19,11 @@ import {
   ScannerContainer,
 } from "./Admin.elements";
 import { Button } from "../RegisterPage/RegisterPage.elements";
+
+import { useNavigate } from "react-router-dom";
 const AdminScanner = () => {
+
+  const navigate = useNavigate()
   const [result, setResult] = useState();
   const [delay, setDelay] = useState(300);
   const [dataRecieved, setDataRecieved] = useState(false);
@@ -90,6 +94,7 @@ const AdminScanner = () => {
   }
   function closeModal() {
     setModalState(false);
+    navigate("/access-granted")
   }
 
   return (

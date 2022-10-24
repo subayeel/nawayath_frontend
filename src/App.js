@@ -50,34 +50,8 @@ function App() {
   const [name, setName] = useState();
   const [paymentId, setPaymentId] = useState();
   const [teamName, setTeamName] = useState();
-  const [imageUrl, setImageUrl] = useState();
+  const [imageUrl, setImageUrl] = useState("");
   const [isAdmin, setAdmin] = useState(false);
-
-  //check user auth
-  const auth = getAuth(app);
-  useEffect(() => {
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        if (
-          user.phoneNumber === "+919663786796" ||
-          user.phoneNumber === "+919611767705"
-        ) {
-          setAdmin(true);
-        } else {
-          setAdmin(false);
-        }
-        // User is signed in.
-
-        setAuth(true);
-        setPhone(user.phoneNumber);
-        await getOwnerdetails(user.phoneNumber);
-      } else {
-        // No user is signed in.
-        setAuth(false);
-        console.log("no user");
-      }
-    });
-  }, [auth, name]);
 
   //get auth user details
   const getOwnerdetails = async (mobileNumber) => {
@@ -97,8 +71,6 @@ function App() {
       setPaymentId(doc.data().razorpay_payment_id);
       setImageUrl(doc.data().ownerTeamLogo);
     });
-
-    console.log("qs" + querySnapshot);
   };
 
   const theme = {
@@ -114,13 +86,42 @@ function App() {
     setIsOpen(!isOpen);
   };
 
+  //check user auth
+  const auth = getAuth(app);
+  useEffect(() => {
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        if (
+          user.phoneNumber === "+919663786796" ||
+          user.phoneNumber === "+919611767705"
+        ) {
+          setAdmin(true);
+          setImageUrl(
+            "https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/ncl-logo.PNG?alt=media&token=6fe8663e-08b5-4ab4-9cba-3a42128b2e4c"
+          );
+        } else {
+          setAdmin(false);
+        }
+        // User is signed in.
+
+        setAuth(true);
+        setPhone(user.phoneNumber);
+        await getOwnerdetails(user.phoneNumber);
+      } else {
+        // No user is signed in.
+        setAuth(false);
+        console.log("no user");
+      }
+    });
+  }, [auth, name]);
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
 
       <Router>
         <Wrapper>
-          <Sidebar isOpen={isOpen} toggle={toggle} />
+          <Sidebar isAuth={isAuth} isOpen={isOpen} toggle={toggle} />
           <Navbar
             isAuth={isAuth}
             setAuth={setAuth}

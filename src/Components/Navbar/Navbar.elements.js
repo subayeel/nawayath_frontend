@@ -136,6 +136,7 @@ export const DropdownContent = styled.div`
   position: absolute;
   padding-top: 7px;
   width: 240px;
+
   /* margin-left: ${(props) => props.lmargin}; */
   background-color: #1b1a55;
   > a {
@@ -150,6 +151,31 @@ export const DropdownContent = styled.div`
     right: 0;
     top: 80px;
     width: 100px;
+  }
+`;
+
+export const ProfileDropdown = styled.div`
+  display: ${(props) => (props.state ? "block" : "none")};
+  position: absolute;
+  padding-top: 7px;
+  right: 0;
+  top: 80px;
+  width: 240px;
+
+  /* margin-left: ${(props) => props.lmargin}; */
+  background-color: #1b1a55;
+  > a {
+    padding: 7px;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    right: 0;
+    top: 80px;
+    width: 160px;
   }
 `;
 
@@ -303,14 +329,14 @@ export const AvatarContainer = styled.div`
 `;
 
 export const AvatarWrapper = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 42px;
+  height: 42px;
   border-radius: 100%;
   overflow: hidden;
 
-  @media screen and (max-width:768px) {
+  @media screen and (max-width: 768px) {
     width: 36px;
-  height: 36px;
+    height: 36px;
   }
 `;
 
@@ -322,5 +348,5 @@ export const AvatarImgWrap = styled.div`
 `;
 
 export const AvatarImg = styled.img`
-  width: 120%;
+  width: 100%;
 `;

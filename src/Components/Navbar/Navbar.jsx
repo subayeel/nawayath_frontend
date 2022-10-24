@@ -23,6 +23,7 @@ import {
   ModalContent,
   HighlitedText,
   Line,
+  ProfileDropdown,
 } from "./Navbar.elements";
 
 import Avatar from "./Avatar";
@@ -202,7 +203,7 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
             >
               <Avatar imageUrl={imageUrl}></Avatar>
             </NavDropDown>
-            <DropdownContent
+            <ProfileDropdown
               state={profileDropdown}
               onMouseEnter={() => setProfileDropDown(true)}
               onMouseLeave={() => setProfileDropDown(false)}
@@ -228,7 +229,7 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
               )}
 
               <NavLinks onClick={handleSignOut}>Logout</NavLinks>
-            </DropdownContent>
+            </ProfileDropdown>
           </>
         ) : (
           ""

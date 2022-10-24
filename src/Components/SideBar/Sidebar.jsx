@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import {  useNavigate,useLocation } from "react-router-dom";
+ 
 import Modal from "react-modal";
 import { Button } from "../RegisterPage/RegisterPage.elements";
 
@@ -18,10 +19,11 @@ import {
   ModalContent,
   HighlitedText,
 } from "./Sidebar.elements";
-import { Line } from "../Navbar/Navbar.elements";
+import { authentication } from "../../config";
 
-const Sidebar = ({ isOpen, toggle }) => {
+const Sidebar = ({ isOpen, toggle, isAuth }) => {
   const location = useLocation();
+  const navigate = useNavigate()
 
   // to open the rules modal
   const [modalState, setModalState] = useState(false);
@@ -41,6 +43,22 @@ const Sidebar = ({ isOpen, toggle }) => {
       top: "55%",
       transform: "translate(-50%, -50%)",
     },
+  };
+
+  const handleSignOut = () => {
+    authentication
+      .signOut()
+      .then(() => {
+        // Sign-out successful.
+
+        console.log("Logged out");
+        navigate("/")
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
+    toggle();
   };
   return (
     <SidebarContainer isOpen={isOpen} toggle={toggle}>
@@ -112,14 +130,23 @@ const Sidebar = ({ isOpen, toggle }) => {
           >
             Meet Our Team
           </SidebarLink>
-
-          <Button
-            className={location.pathname === "/owner-login" ? "active" : ""}
-            onClick={toggle}
-            to="/owner-login"
-          >
-            Login as Owner
-          </Button>
+          {isAuth ? (
+            <>
+              <Button onClick={handleSignOut} to="/">
+                Logout
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button
+                className={location.pathname === "/owner-login" ? "active" : ""}
+                onClick={toggle}
+                to="/owner-login"
+              >
+                Login as Owner
+              </Button>
+            </>
+          )}
         </SidebarMenu>
       </SidebarWrapper>
     </SidebarContainer>
