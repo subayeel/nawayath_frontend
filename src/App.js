@@ -58,13 +58,16 @@ function App() {
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-        if (user.phoneNumber === "+919663786796" ||user.phoneNumber === "+919740730152") {
+        if (
+          user.phoneNumber === "+919663786796" ||
+          user.phoneNumber === "+919740730152"
+        ) {
           setAdmin(true);
-        }else{
+        } else {
           setAdmin(false);
         }
         // User is signed in.
-        
+
         setAuth(true);
         setPhone(user.phoneNumber);
         await getOwnerdetails(user.phoneNumber);
@@ -84,7 +87,7 @@ function App() {
       ownerRef,
       where("ownerContactNumber", "==", mobileNumber.slice(3))
     );
-      console.log("q"+q)
+    console.log("q" + q);
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
@@ -95,8 +98,7 @@ function App() {
       setImageUrl(doc.data().ownerTeamLogo);
     });
 
-    console.log("qs"+querySnapshot)
-
+    console.log("qs" + querySnapshot);
   };
 
   const theme = {

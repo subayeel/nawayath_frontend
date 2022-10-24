@@ -1,19 +1,23 @@
-import React from 'react'
-import {AvatarContainer,AvatarImgWrap,AvatarImg,AvatarWrapper} from './Navbar.elements'
+import React from "react";
+import {
+  AvatarContainer,
+  AvatarImgWrap,
+  AvatarImg,
+  AvatarWrapper,
+} from "./Navbar.elements";
 
-const Avatar = ({imageUrl}) => {
+const Avatar = ({ imageUrl }) => {
   return (
     <>
-        <AvatarContainer>
+      <AvatarContainer>
         <AvatarWrapper>
-            <AvatarImgWrap>
-                <AvatarImg src={imageUrl}/>
-            </AvatarImgWrap>
+          <AvatarImgWrap>
+            <AvatarImg src={imageUrl} />
+          </AvatarImgWrap>
         </AvatarWrapper>
-            
-        </AvatarContainer>
+      </AvatarContainer>
     </>
-  )
-}
+  );
+};
 
-export default Avatar
+export default Avatar;

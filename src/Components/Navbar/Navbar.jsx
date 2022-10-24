@@ -31,7 +31,6 @@ import { authentication } from "../../config";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "../RegisterPage/RegisterPage.elements";
 
-
 function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
   const navigate = useNavigate();
   const [isHome, setHome] = useState(true);
@@ -42,7 +41,6 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
 
   //handle get data
   //states for data
-  
 
   function handleClick() {
     setHome(!isHome);
@@ -60,6 +58,7 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
         // An error happened.
         console.log(error);
       });
+    setProfileDropDown(false);
   };
 
   // to open the rules modal
@@ -82,7 +81,6 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
       transform: "translate(-50%, -50%)",
     },
   };
-  
 
   //handling authentication
 
@@ -195,30 +193,46 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
               Our Team
             </NavLinks>
           </NavItem>
-          {isAuth ? (
-            <NavItem>
-              <NavDropDown
-                onMouseEnter={() => setProfileDropDown(true)}
-                onMouseLeave={() => setProfileDropDown(false)}
-              >
-                <Avatar imageUrl={imageUrl}></Avatar>
-              </NavDropDown>
-              <DropdownContent
-                state={profileDropdown}
-                onMouseEnter={() => setProfileDropDown(true)}
-                onMouseLeave={() => setProfileDropDown(false)}
-              >
-                <NavLinks to="/profile-page">Profile</NavLinks>
-                <NavLinks onClick={handleSignOut}>Logout</NavLinks>
-                
-                
-              </DropdownContent>
-            </NavItem>
-          ) : (
-            ""
-          )}
         </NavMenu>
-          {isAdmin ? <NavLinks to="/admin-scanner">Admin Panel</NavLinks> : ""}
+        {isAuth ? (
+          <>
+            <NavDropDown
+              onMouseEnter={() => setProfileDropDown(true)}
+              onMouseLeave={() => setProfileDropDown(false)}
+            >
+              <Avatar imageUrl={imageUrl}></Avatar>
+            </NavDropDown>
+            <DropdownContent
+              state={profileDropdown}
+              onMouseEnter={() => setProfileDropDown(true)}
+              onMouseLeave={() => setProfileDropDown(false)}
+            >
+              {isAdmin ? (
+                <NavLinks
+                  onClick={() => {
+                    setProfileDropDown(false);
+                  }}
+                  to="/admin-scanner"
+                >
+                  Admin Panel
+                </NavLinks>
+              ) : (
+                <NavLinks
+                  onClick={() => {
+                    setProfileDropDown(false);
+                  }}
+                  to="/profile-page"
+                >
+                  Profile
+                </NavLinks>
+              )}
+
+              <NavLinks onClick={handleSignOut}>Logout</NavLinks>
+            </DropdownContent>
+          </>
+        ) : (
+          ""
+        )}
       </NavbarContainer>
     </Nav>
   );

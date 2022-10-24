@@ -9,7 +9,7 @@ import { db } from "../../config";
 import { MainContainer, MainWrapper } from "../Global";
 
 //stylings
-import { StyledModal,ImgWrap,Img,ModalContent,HighlitedText,CloseIcon,Text3 } from "./Admin.elements";
+import { StyledModal,ImgWrap,Img,ModalContent,HighlitedText,CloseIcon,Text3, ScannerContainer } from "./Admin.elements";
 import { Button } from "../RegisterPage/RegisterPage.elements";
 const AdminScanner = () => {
   const [result, setResult] = useState();
@@ -51,8 +51,12 @@ const AdminScanner = () => {
 
   //qrcode stylings
   const previewStyle = {
-    height: 240,
-    width: 320,
+  
+      width: "14rem",
+      height: "14rem",
+      
+      
+    
   };
 
   //get auth user details
@@ -114,13 +118,16 @@ const AdminScanner = () => {
           {dataRecieved ? (
             ""
           ) : 
-            <QrReader
+          <ScannerContainer>
+          <QrReader
                 delay={delay}
                 onError={handleError}
                 style={previewStyle}
                 onScan={handleScan}
                 
               />
+          </ScannerContainer>
+            
             
           }
         </MainWrapper>

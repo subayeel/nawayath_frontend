@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Modal from "react-modal";
 import { FaTimes } from "react-icons/fa";
+import { CenterFlexContainer } from "../Global";
 
 export const StyledModal = styled(Modal)`
   height: 360px;
@@ -70,3 +71,7 @@ export const Text3 = styled.p`
   margin: 4px 0;
   text-align: ${({ start }) => (start ? "start" : "center")};
 `;
+
+export const ScannerContainer = styled(CenterFlexContainer)`
+margin: 14px 28px;
+`

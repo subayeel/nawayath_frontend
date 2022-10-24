@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FaAngleRight, FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { CenterFlexContainer } from "../Global";
 
 export const Nav = styled.nav`
   position: sticky;
@@ -59,7 +60,7 @@ export const CloseIcon = styled(FaTimes)`
   width: 22px;
   height: 22px;
   position: absolute;
-  right: 0;
+
   :hover {
     color: black;
     cursor: pointer;
@@ -70,16 +71,12 @@ export const CloseIcon = styled(FaTimes)`
   }
 `;
 
-export const MobileIcon = styled.div`
+export const MobileIcon = styled(CenterFlexContainer)`
   display: none;
+  height: 100%;
 
   @media (max-width: 768px) {
-    display: block;
-    position: absolute;
-    top: 50%;
-    transform: translate(50%, -50%);
-
-    left: 0;
+    display: flex;
     font-size: 25px;
     cursor: pointer;
   }
@@ -130,6 +127,9 @@ export const NavDropDown = styled.span`
   &:hover {
     color: #ccc;
   }
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
 `;
 export const DropdownContent = styled.div`
   display: ${(props) => (props.state ? "block" : "none")};
@@ -144,6 +144,12 @@ export const DropdownContent = styled.div`
       background-color: black;
       color: white;
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    right: 0;
+    top: 80px;
+    width: 100px;
   }
 `;
 
@@ -284,33 +290,37 @@ export const ModalContent = styled.div`
       rgba(255, 255, 255, 0.85)
     ),
     url(https://firebasestorage.googleapis.com/v0/b/eduqate-d65f5.appspot.com/o/cricket.png?alt=media&token=2307d126-3a11-40ff-afa6-23c2727ff5fe);
-    background-size:contain;
+  background-size: contain;
   display: flex;
   position: relative;
   flex-direction: column;
 `;
 
-
 export const AvatarContainer = styled.div`
-display:flex;
-justify-content: center;
-align-items: center;
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const AvatarWrapper = styled.div`
-width: 50px;
-height: 50px;
-border-radius:100%;
-overflow: hidden;
-`
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  overflow: hidden;
+
+  @media screen and (max-width:768px) {
+    width: 36px;
+  height: 36px;
+  }
+`;
 
 export const AvatarImgWrap = styled.div`
-display:flex;
-justify-content: center;
-align-items: center;
-object-fit:cover;
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+`;
 
 export const AvatarImg = styled.img`
-width: 120%;
-`
+  width: 120%;
+`;
