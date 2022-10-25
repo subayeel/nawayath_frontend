@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Modal from "react-modal";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes,FaQrcode } from "react-icons/fa";
 import { CenterFlexContainer, TableRow } from "../Global";
 
 export const StyledModal = styled(Modal)`
@@ -34,6 +34,22 @@ export const CloseIcon = styled(FaTimes)`
   }
 `;
 
+export const QRCodeIcon = styled(FaQrcode)`
+  color: #1b1a55;
+  width: 32px;
+  height: 32px;
+  margin-left: 14px;
+  
+  :hover {
+    color: black;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
+`;
+
 export const ImgWrap = styled.div`
   height: 100px;
   width: 100px;
@@ -57,9 +73,14 @@ export const ModalContent = styled.div`
 
 export const HighlitedText = styled.p`
   font-weight: 700;
-  font-size: 24px;
+  font-size: 22px;
   color: #1B1A55;
   text-align: center;
+  
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 
 `;
 

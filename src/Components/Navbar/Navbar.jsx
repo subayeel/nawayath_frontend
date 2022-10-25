@@ -129,6 +129,7 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
               Home
             </NavLinks>
           </NavItem>
+          <NavLinks to="/player-profile">Player profile</NavLinks>
           <NavItem>
             <NavDropDown
               onMouseEnter={() => setRDropState(true)}
@@ -234,10 +235,19 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
                 >
                   Guests
                 </NavLinks>
+                <NavLinks
+                  onClick={() => {
+                    setProfileDropDown(false);
+                  }}
+                  to="/auction-handler"
+                >
+                  Auction Handler
+                </NavLinks>
                 </>
                 
               ) : (
-                <NavLinks
+                <>
+                  <NavLinks
                   onClick={() => {
                     setProfileDropDown(false);
                   }}
@@ -245,6 +255,16 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
                 >
                   Profile
                 </NavLinks>
+                <NavLinks
+                  onClick={() => {
+                    setProfileDropDown(false);
+                  }}
+                  to="/auction-page"
+                >
+                  Auction Page
+                </NavLinks>
+                </>
+                
               )}
 
               <NavLinks onClick={handleSignOut}>Logout</NavLinks>

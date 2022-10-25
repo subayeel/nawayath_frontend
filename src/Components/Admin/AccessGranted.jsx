@@ -3,7 +3,7 @@ import { db } from "../../config";
 import { useEffect, useState } from "react";
 
 //stylings
-import { HighlitedText, Column ,SubRow} from "./Admin.elements";
+import { HighlitedText, Column ,QRCodeIcon} from "./Admin.elements";
 import {
   MainContainer,
   MainWrapper,
@@ -13,8 +13,10 @@ import {
   TableHeader,
   TableBody,
 } from "../Global";
+import { useNavigate } from "react-router-dom";
 
 const AccessGranted = () => {
+  const navigate = useNavigate();
   const [grantedList, setGrantedList] = useState([]);
   async function getGrantedList() {
     const q = query(
@@ -65,7 +67,8 @@ const AccessGranted = () => {
     <MainContainer>
       <MainWrapper>
         <Column>
-          <HighlitedText>Permission granted List</HighlitedText>
+          <HighlitedText>Permission granted List <QRCodeIcon onClick={()=>{navigate("/admin-scanner")}}>Back</QRCodeIcon></HighlitedText>
+          
           <Table>
             <TableBody>
               <TableHeader>Owner Name</TableHeader>

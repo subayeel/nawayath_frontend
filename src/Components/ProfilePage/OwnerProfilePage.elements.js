@@ -59,3 +59,23 @@ export const Img = styled.img`
   width: 100%;
   object-fit: cover;
 `;
+
+export const SquareButton = styled.button`
+  padding: 7px 14px;
+  color: ${(props)=>props.primary?"white":"#1b1a55"};;
+  background-color: ${(props)=>props.primary?"#1b1a55":"#fff"};
+  border-radius: 4px;
+  width: 80%;
+  margin: 14px 7px;
+  border: ${(props)=>props.primary?"none":"2px solid #1b1a55"};
+  &:hover {
+    background-color: black;
+    color:#fff;
+    cursor: pointer;
+    border: ${(props)=>props.primary?"none":"2px solid black"};
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 200px;
+  }
+`;
