@@ -7,14 +7,9 @@ import {
   MDBCardText,
   MDBCardBody,
   MDBCardImage,
-  MDBBtn,
   MDBBreadcrumb,
   MDBBreadcrumbItem,
-  MDBProgress,
-  MDBProgressBar,
-  MDBIcon,
-  MDBListGroup,
-  MDBListGroupItem,
+  
 } from "mdb-react-ui-kit";
 import { useParams } from "react-router-dom";
 import { collection, query, where, getDocs } from "firebase/firestore";
@@ -25,6 +20,8 @@ import { SquareButton } from "./OwnerProfilePage.elements";
 
 export default function PlayerProfile() {
   const { id } = useParams();
+
+  const [fullName, setName] = useState();
   const [playerDetails, setPlayerDetails] = useState({
     dob: "",
     educationInstitute: "",
@@ -50,8 +47,8 @@ export default function PlayerProfile() {
 
   async function getPlayerDetails() {
     const q = query(
-      collection(db, "playerDetails"),
-      where("razorpay_payment_id", "==", id)
+      collection(db, "auctionPlayers"),
+      where("_id", "==", parseInt(id))
     );
     let arr = [];
 
@@ -65,6 +62,28 @@ export default function PlayerProfile() {
   useEffect(() => {
     getPlayerDetails();
   }, []);
+
+  const getFullName = () => {
+    if (playerDetails.firstName === undefined) {
+      setName(playerDetails.middleName + " " + playerDetails.lastName);
+    } else if (playerDetails.middleName === undefined) {
+      setName(playerDetails.firstName + " " + playerDetails.lastName);
+    } else if (playerDetails.lastName === undefined) {
+      setName(playerDetails.firstName + " " + playerDetails.middleName);
+    } else {
+      setName(
+        playerDetails.firstName +
+          " " +
+          playerDetails.middleName +
+          " " +
+          playerDetails.lastName
+      );
+    }
+  };
+
+  useEffect(() => {
+    getFullName();
+  }, [playerDetails]);
   return (
     <section style={{ backgroundColor: "#eee" }}>
       <MDBContainer className="py-5">
@@ -94,11 +113,7 @@ export default function PlayerProfile() {
                   fluid
                 />
                 <p className="text-muted mb-1">
-                  {playerDetails.firstName +
-                    " " +
-                    playerDetails.middleName +
-                    " " +
-                    playerDetails.lastName}
+                  {fullName}
                 </p>
                 <p className="text-muted mb-4">{playerDetails.sportsClub}</p>
                 <div className="d-flex justify-content-center mb-2">
@@ -118,11 +133,7 @@ export default function PlayerProfile() {
                   </MDBCol>
                   <MDBCol sm="9">
                     <MDBCardText className="text-muted">
-                    {playerDetails.firstName +
-                    " " +
-                    playerDetails.middleName +
-                    " " +
-                    playerDetails.lastName}
+                    {fullName}
                     </MDBCardText>
                   </MDBCol>
                 </MDBRow>

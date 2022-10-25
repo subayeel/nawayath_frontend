@@ -18,13 +18,17 @@ export const CenterFlexContainer = styled.div`
   justify-content: center;
 `;
 
+
+
 export const MainContainer = styled.div`
   max-width: 1140px;
   margin: 0 auto;
   min-height: 80vh;
 `;
 
-export const MainWrapper = styled(CenterFlexContainer)``;
+export const MainWrapper = styled(CenterFlexContainer)`
+min-height: 80vh;
+`;
 
 export const Table = styled.table`
   width: 75%;

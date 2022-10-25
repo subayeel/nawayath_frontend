@@ -29,6 +29,7 @@ const AccessGranted = () => {
     querySnapshot.forEach((doc) => {
       arr = [...arr, doc.data()];
       setGrantedList(arr);
+      console.log(arr)
     });
   }
 

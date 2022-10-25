@@ -16,6 +16,13 @@ export const StyledModal = styled(Modal)`
   @media screen and (max-width: 768px) {
   }
 `;
+export const Label = styled.label`
+  width: 100%;
+  color: #2c2c2c;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 24px;
+`;
 
 export const CloseIcon = styled(FaTimes)`
   color: #1b1a55;
@@ -137,3 +144,17 @@ flex-direction: column;
 export const SubRow = styled(TableRow)`
 padding-left: 14px;
 `
+export const InputField = styled.input`
+  width: 100%;
+
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  &:focus {
+    outline-color: #1b1a55;
+  }
+`;
+

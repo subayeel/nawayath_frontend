@@ -34,6 +34,7 @@ import AdminScanner from "./Components/Admin/AdminScanner";
 import AccessGranted from "./Components/Admin/AccessGranted";
 import AuctionHandler from "./Components/Admin/AuctionHandler";
 import PlayerProfile from "./Components/ProfilePage/PlayerProfile";
+import MyTeam from "./Components/ProfilePage/MyTeam"
 
 //function of scroll to top
 const Wrapper = ({ children }) => {
@@ -144,6 +145,8 @@ function App() {
             <Route path="/owner-login" element={<OwnerLoginPage />} />
             <Route path="/paymentsuccess" element={<PaymentSuccess />} />
             <Route path="/ourteam" element={<OurTeam />} />
+
+            {/* Owner Routes */}
             <Route
               path="/profile-page"
               element={
@@ -155,6 +158,7 @@ function App() {
                 />
               }
             />
+            <Route path="/my-team" element={<MyTeam phone={phone}/>} />
 
             {/* Admin routes */}
             <Route path="/admin-scanner" element={<AdminScanner />} />

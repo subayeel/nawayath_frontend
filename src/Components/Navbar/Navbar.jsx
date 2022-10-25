@@ -259,9 +259,9 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
                   onClick={() => {
                     setProfileDropDown(false);
                   }}
-                  to="/auction-page"
+                  to="/my-team"
                 >
-                  Auction Page
+                  My Team
                 </NavLinks>
                 </>
                 

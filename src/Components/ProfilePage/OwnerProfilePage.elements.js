@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { CenterFlexContainer } from "../Global";
 import { QrReader } from "react-qr-scanner";
+import { Link } from "react-router-dom";
 
 export const ProfilePageContainer = styled.div`
   max-width: 1140px;
@@ -60,13 +61,17 @@ export const Img = styled.img`
   object-fit: cover;
 `;
 
-export const SquareButton = styled.button`
+export const SquareButton = styled(Link)`
   padding: 7px 14px;
   color: ${(props)=>props.primary?"white":"#1b1a55"};;
   background-color: ${(props)=>props.primary?"#1b1a55":"#fff"};
   border-radius: 4px;
-  width: 80%;
+  width: min-content;
+  height: 48px;
   margin: 14px 7px;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
   border: ${(props)=>props.primary?"none":"2px solid #1b1a55"};
   &:hover {
     background-color: black;
@@ -79,3 +84,11 @@ export const SquareButton = styled.button`
     max-width: 200px;
   }
 `;
+
+export const PlayerCardWrapper = styled.div`
+display: grid;
+padding: 7px 14px;
+align-items:center;
+grid-gap: 14px;
+grid-template-columns: max-content auto 100px;
+`
