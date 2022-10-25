@@ -129,7 +129,7 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
               Home
             </NavLinks>
           </NavItem>
-          <NavLinks to="/player-profile">Player profile</NavLinks>
+          
           <NavItem>
             <NavDropDown
               onMouseEnter={() => setRDropState(true)}
