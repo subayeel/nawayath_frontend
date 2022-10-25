@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import QrReader from "react-qr-reader";
 
 //firebase
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, addDoc } from "firebase/firestore";
 import { db } from "../../config";
 
 import { MainContainer, MainWrapper } from "../Global";
@@ -17,17 +17,16 @@ import {
   CloseIcon,
   Text3,
   ScannerContainer,
+  SelectField,
 } from "./Admin.elements";
 import { Button } from "../RegisterPage/RegisterPage.elements";
 
 import { useNavigate } from "react-router-dom";
 const AdminScanner = () => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [result, setResult] = useState();
-  const [delay, setDelay] = useState(300);
+  const [delay, setDelay] = useState(1000);
   const [dataRecieved, setDataRecieved] = useState(false);
-  const [qrData, setQrData] = useState();
 
   const [name, setName] = useState();
   const [paymentId, setPaymentId] = useState();
@@ -37,26 +36,62 @@ const AdminScanner = () => {
   const [isVerified, setVerified] = useState(false);
 
   const [selected, setSelected] = useState("environment");
+
+  const [guest1, setGuest1] = useState("");
+  const [guest2, setGuest2] = useState("");
+  const [teamAnalyst, setTeamAnalyst] = useState("");
+  const [technicalHead, setTechnicalHead] = useState("");
+
   //method to scan qr
   const handleScan = async (scanData) => {
-    
-      setResult((scanData));
+    setResult(scanData);
 
-      // await getOwnerdetails(JSON.parse(result.text).paymentId);
-    
-
-    
-     console.log((scanData))
-    
+    // await getOwnerdetails(JSON.parse(result.text).paymentId);
   };
 
   const handleError = (error) => {
     console.log(error);
   };
+
+  //add to access granted list
+  const addToGrantedList = async (
+    ownerNameP,
+    guest1P,
+    guest2P,
+    teamAnalystP,
+    technicalHeadP
+  ) => {
+    try {
+      const docRef = await addDoc(collection(db, "accessGranted"), {
+        ownerName: ownerNameP,
+        guest1: guest1P,
+        guest2: guest2P,
+        teamAnalyst: teamAnalystP,
+        technicalHead: technicalHeadP,
+        entry: "granted",
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (error) {
+      console.log("UNSUCCESSFULL: " + error);
+    }
+  };
+
+  // async function getGrantedList() {
+  //   const q = query(
+  //     collection(db, "accessGranted"),
+  //     where("entry", "==", "granted")
+  //   );
+
+  //   const querySnapshot = await getDocs(q);
+  //   querySnapshot.forEach((doc) => {
+
+  //   });
+  // }
+
   useEffect(() => {
     if (result) {
       setDataRecieved(true);
-      getOwnerdetails(JSON.parse(result).paymentId)
+      getOwnerdetails(JSON.parse(result).paymentId);
     }
   }, [result]);
 
@@ -83,6 +118,21 @@ const AdminScanner = () => {
         setPaymentId(doc.data().razorpay_payment_id);
         setImageUrl(doc.data().ownerTeamLogo);
         setModalState(true);
+
+        //setting
+
+        // setGuest1(doc.data().guest1);
+        // setGuest2(doc.data().guest2);
+        // setTeamAnalyst(doc.data().teamAnalyst);
+        // setTechnicalHead(doc.data().technicalHead);
+
+        addToGrantedList(
+          JSON.parse(result).name,
+          doc.data().guest1,
+          doc.data().guest2,
+          doc.data().teamAnalyst,
+          doc.data().technicalHead
+        );
       }
     });
   };
@@ -94,7 +144,7 @@ const AdminScanner = () => {
   }
   function closeModal() {
     setModalState(false);
-    navigate("/access-granted")
+    navigate("/access-granted");
   }
 
   return (
@@ -127,6 +177,7 @@ const AdminScanner = () => {
             ""
           ) : (
             <ScannerContainer>
+            <Text3>Scan QR to grant permission</Text3>
               <QrReader
                 facingMode={selected}
                 delay={delay}
@@ -134,16 +185,16 @@ const AdminScanner = () => {
                 style={previewStyle}
                 onScan={handleScan}
               />
+              <SelectField
+                onChange={(e) => {
+                  setSelected(e.target.value);
+                }}
+              >
+                <option value={"environment"}>Back-Camera</option>
+                <option value={"user"}>Front-Camera</option>
+              </SelectField>
             </ScannerContainer>
           )}
-          <select
-            onChange={(e) => {
-              setSelected(e.target.value);
-            }}
-          >
-            <option value={"environment"}>Back-Camera</option>
-            <option value={"user"}>Front-Camera</option>
-          </select>
         </MainWrapper>
       </MainContainer>
     </>

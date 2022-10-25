@@ -61,7 +61,7 @@ function App() {
       ownerRef,
       where("ownerContactNumber", "==", mobileNumber.slice(3))
     );
-    console.log("q" + q);
+    
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots

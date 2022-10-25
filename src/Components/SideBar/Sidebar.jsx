@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {  useNavigate,useLocation } from "react-router-dom";
  
 import Modal from "react-modal";
-import { Button } from "../RegisterPage/RegisterPage.elements";
+import { BtnContainer, Button } from "../RegisterPage/RegisterPage.elements";
 
 import {
   SidebarContainer,
@@ -130,7 +130,8 @@ const Sidebar = ({ isOpen, toggle, isAuth }) => {
           >
             Meet Our Team
           </SidebarLink>
-          {isAuth ? (
+          <BtnContainer>
+            {isAuth ? (
             <>
               <Button onClick={handleSignOut} to="/">
                 Logout
@@ -147,6 +148,8 @@ const Sidebar = ({ isOpen, toggle, isAuth }) => {
               </Button>
             </>
           )}
+          </BtnContainer>
+          
         </SidebarMenu>
       </SidebarWrapper>
     </SidebarContainer>

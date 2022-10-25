@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Modal from "react-modal";
 import { FaTimes } from "react-icons/fa";
-import { CenterFlexContainer } from "../Global";
+import { CenterFlexContainer, TableRow } from "../Global";
 
 export const StyledModal = styled(Modal)`
   height: 360px;
@@ -57,11 +57,30 @@ export const ModalContent = styled.div`
 
 export const HighlitedText = styled.p`
   font-weight: 700;
-  font-size: 18px;
-  color: #970000;
+  font-size: 24px;
+  color: #1B1A55;
   text-align: center;
-  justify-content: center;
+
+`;
+
+
+export const Row = styled.div`
   display: flex;
+  width: 100%;
+  margin: 7px 0;
+  justify-content: space-between;
+`;
+export const Text2 = styled.p`
+  font-size: 18px;
+  font-weight: 600;
+  color: $ccc;
+  margin: 0 14px;
+`;
+export const Text4 = styled.p`
+  font-size: 18 px;
+  color: black;
+  margin: 0;
+  text-align: ${({ start }) => (start ? "start" : "center")};
 `;
 
 export const Text3 = styled.p`
@@ -74,4 +93,26 @@ export const Text3 = styled.p`
 
 export const ScannerContainer = styled(CenterFlexContainer)`
 margin: 14px 28px;
+flex-direction: column;
+`;
+export const SelectField = styled.select`
+  width: 100%;
+
+  padding: 12px 14px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  &:focus {
+    outline-color: #1b1a55;
+  }
+`;
+
+export const Column = styled(CenterFlexContainer)`
+width: 100%;
+flex-direction: column;
+`
+export const SubRow = styled(TableRow)`
+padding-left: 14px;
 `

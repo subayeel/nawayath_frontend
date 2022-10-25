@@ -54,11 +54,13 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
         // Sign-out successful.
 
         console.log("Logged out");
+        navigate("/")
       })
       .catch((error) => {
         // An error happened.
         console.log(error);
       });
+      
     setProfileDropDown(false);
   };
 
@@ -174,15 +176,21 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
                 >
                   Volunteer Registration
                 </NavLinks>
-                <Line />
-                <NavLinks
-                  className={
-                    location.pathname === "/owner-login" ? "active" : ""
-                  }
-                  to="/owner-login"
-                >
-                  Login as Team Owner
-                </NavLinks>
+                {isAuth ? (
+                  ""
+                ) : (
+                  <>
+                    <Line />
+                    <NavLinks
+                      className={
+                        location.pathname === "/owner-login" ? "active" : ""
+                      }
+                      to="/owner-login"
+                    >
+                      Login as Team Owner
+                    </NavLinks>
+                  </>
+                )}
               </DropdownContent>
             </DropdownContent>
           </NavItem>
@@ -209,14 +217,25 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
               onMouseLeave={() => setProfileDropDown(false)}
             >
               {isAdmin ? (
-                <NavLinks
+                <>
+                  <NavLinks
                   onClick={() => {
                     setProfileDropDown(false);
                   }}
                   to="/admin-scanner"
                 >
-                  Admin Panel
+                  Scan QR
                 </NavLinks>
+                <NavLinks
+                  onClick={() => {
+                    setProfileDropDown(false);
+                  }}
+                  to="/access-granted"
+                >
+                  Guests
+                </NavLinks>
+                </>
+                
               ) : (
                 <NavLinks
                   onClick={() => {

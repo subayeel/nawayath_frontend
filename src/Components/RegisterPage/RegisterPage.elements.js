@@ -300,10 +300,10 @@ export const SuccessCard = styled.div`
 
 export const BtnContainer = styled.div`
   display: flex;
-  margin-top: 14px;
+  margin-top: 28px;
   justify-content: center;
   @media screen and (max-width: 768px) {
-    margin-left: auto;
+    
   }
 `;
 export const ImgWrap = styled.div`
