@@ -21,7 +21,7 @@ export const CloseIcon = styled(FaTimes)`
   position: absolute;
   height: 28px;
   width: 28px;
-  color: #e8e9ee;
+  color: #fff;
   top: 0;
   right: 0;
   padding: 14px;

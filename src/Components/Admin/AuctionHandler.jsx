@@ -166,6 +166,7 @@ const AuctionHandler = () => {
               </option>
               <option value="rasbaharChallengers">Rasbahar Challengers</option>
               <option value="sewn11">Sewn 11</option>
+              <option value="risingStar">Rising Star</option>
               <option value="azaad">Azaad</option>
             </SelectField>
             <MDBBtn color="success" onClick={handleSold}>
