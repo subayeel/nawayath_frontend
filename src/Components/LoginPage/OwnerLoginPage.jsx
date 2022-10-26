@@ -22,20 +22,31 @@ import {
   ImgWrapper,
   Img,
 } from "./OwnerLoginPage.elements";
+import { MDBInput, MDBBtn, MDBContainer } from "mdb-react-ui-kit";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { useEffect } from "react";
 
 const OwnerLoginPage = () => {
   const [otpState, setOtpState] = useState(false);
   const [mobileNumber, setMobileNumber] = useState("");
   const [otpValue, setOtpValue] = useState(0);
+  const [isOwnerNum, setIsOwnerNum] = useState(false);
   const navigate = useNavigate();
-
+  const ownerNumbers = [
+    "+919740730152",//admin
+    "+919611950190",
+    "+919738809009",
+    "+91971502484544",
+    "+919845260000",
+    "+919972132310",
+    "+919986663666",
+    "+919902722823",
+    "+919611767705"
+  ];
   //auth variables
 
   const handleSendOtp = (e) => {
-    console.log("handle called  ");
-
-    if (mobileNumber.toString().length == 13) {
+    if (mobileNumber.toString().length == 13 && isOwnerNum) {
       setOtpState(true);
       generateRecaptcha();
       let appVerifier = window.recaptchaVerifier;
@@ -55,8 +66,18 @@ const OwnerLoginPage = () => {
 
           console.log(error);
         });
+    } else {
+      alert("Please enter your registered Number");
     }
   };
+
+  useEffect(() => {
+    if (ownerNumbers.includes(mobileNumber)) {
+      setIsOwnerNum(true);
+    } else {
+      setIsOwnerNum(false);
+    }
+  }, [mobileNumber]);
 
   const generateRecaptcha = () => {
     window.recaptchaVerifier = new RecaptchaVerifier(
@@ -78,7 +99,7 @@ const OwnerLoginPage = () => {
 
   const handleOtpChange = (e) => {
     var otp = e.target.value;
-    
+
     console.log(otp);
     if (otp.length === 6) {
       let confirmationResult = window.confirmationResult;
@@ -102,10 +123,11 @@ const OwnerLoginPage = () => {
   };
 
   const handleSignOut = () => {
-    authentication.signOut()
+    authentication
+      .signOut()
       .then(() => {
         // Sign-out successful.
-        
+
         console.log("Logged out");
       })
       .catch((error) => {
@@ -114,11 +136,12 @@ const OwnerLoginPage = () => {
       });
   };
 
+  useEffect(() => {});
+
   return (
     <>
       <LoginContainer>
         <LoginWrapper>
-          
           <LoginForm>
             <TextWrap>
               <Heading>
@@ -127,7 +150,11 @@ const OwnerLoginPage = () => {
             </TextWrap>
 
             <TextfieldWrap>
-              {otpState ? <></> : <NumberField onChange={handleNumber} />}
+              {otpState ? (
+                <></>
+              ) : (
+                <MDBInput label="Mobile Number" onChange={handleNumber} />
+              )}
             </TextfieldWrap>
 
             {otpState ? (
@@ -146,20 +173,20 @@ const OwnerLoginPage = () => {
               ""
             )}
             <TextfieldWrap>
-              {otpState ? <OtpField onChange={handleOtpChange} /> : ""}
+              {otpState ? (
+                <MDBInput label="Enter OTP" onChange={handleOtpChange} />
+              ) : (
+                ""
+              )}
             </TextfieldWrap>
 
-            
-            <OrLineContainer>
-              <OrLineWrapper>
-                <Line></Line>
-                <OrLine>Not registered?</OrLine>
-                <Line></Line>
-              </OrLineWrapper>
-            </OrLineContainer>
+            <OrLine>Not registered?</OrLine>
 
             <ImgWrapper>
-              <Img loading="lazy"  src="https://firebasestorage.googleapis.com/v0/b/eduqate-d65f5.appspot.com/o/leader.png?alt=media&token=5d7bc820-ef78-4acd-b6a5-39c0f6abe304" />
+              <Img
+                loading="lazy"
+                src="https://firebasestorage.googleapis.com/v0/b/eduqate-d65f5.appspot.com/o/leader.png?alt=media&token=5d7bc820-ef78-4acd-b6a5-39c0f6abe304"
+              />
             </ImgWrapper>
             <LoginButton radius="36px" to="/owner-register">
               Register as owner

@@ -31,7 +31,7 @@ export const LoginWrapper = styled.div`
   padding: 0 24px;
 
   @media screen and (max-width:768px){
-    width: 240px;
+    width: 280px;
   }
 `;
 
@@ -158,8 +158,8 @@ export const OtpSentMessage = styled.p`
   font-size: 14px;
   text-decoration-line: none;
   color: #3c7c90;
-  
-  margin: 4px 0;
+  color: #666666;
+  margin: 5px 0;
  
 `;
 export const Color = styled.p`
