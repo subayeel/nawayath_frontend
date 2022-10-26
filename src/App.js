@@ -35,6 +35,7 @@ import AccessGranted from "./Components/Admin/AccessGranted";
 import AuctionHandler from "./Components/Admin/AuctionHandler";
 import PlayerProfile from "./Components/ProfilePage/PlayerProfile";
 import MyTeam from "./Components/ProfilePage/MyTeam"
+import LivePage from "./Components/Home/LivePage";
 
 //function of scroll to top
 const Wrapper = ({ children }) => {
@@ -145,6 +146,7 @@ function App() {
             <Route path="/owner-login" element={<OwnerLoginPage />} />
             <Route path="/paymentsuccess" element={<PaymentSuccess />} />
             <Route path="/ourteam" element={<OurTeam />} />
+            <Route path="/live-page" element={<LivePage/>}/>
 
             {/* Owner Routes */}
             <Route

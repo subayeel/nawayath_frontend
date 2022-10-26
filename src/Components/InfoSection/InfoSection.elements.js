@@ -134,5 +134,6 @@ export const Button = styled(Link)`
   &:hover {
     transition: all 0.2s ease-in-out;
     background: ${({ primary }) => (primary ? "black" : "#2c2c2c")};
+    color: white;
   }
 `;

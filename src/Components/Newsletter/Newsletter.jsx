@@ -1,3 +1,4 @@
+import { MDBInput } from "mdb-react-ui-kit";
 import React from "react";
 import {
   NewsletterContainer,
@@ -19,8 +20,7 @@ const Newsletter = () => {
           <Info>Sign up to hear from us about specials events.</Info>
           <SignupContainer>
             <TextfieldContainer>
-              <TextField />
-              <label htmlFor="username" data-title="Email Address"></label>
+              <MDBInput label="Enter your email"/>
               <SignupBtn>Sign Up</SignupBtn>
             </TextfieldContainer>
           </SignupContainer>

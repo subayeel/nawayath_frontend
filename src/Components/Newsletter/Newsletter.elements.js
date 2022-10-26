@@ -45,16 +45,7 @@ export const TextfieldContainer = styled.div`
   align-items: center;
   justify-content: center;
   
-  label::before {
-    content: attr(title);
-    position: absolute;
-    top: 0;
-    left: 15px;
-    line-height: 40px;
-    font-size: 18px;
-    color: #777;
-    transition: 300ms all;
-  }
+  
 `;
 export const TextField = styled.input.attrs({
   type: "text",
@@ -104,7 +95,7 @@ export const SignupBtn = styled.button`
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  padding: 28px;
+  padding: 22px 28px;
   border-radius: 28px;
   outline: none;
   border: none;

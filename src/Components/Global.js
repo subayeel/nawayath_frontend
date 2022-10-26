@@ -4,7 +4,7 @@ import styled from "styled-components";
 const GlobalStyle = createGlobalStyle`
 
 body{
-    background: #fff;
+    background: #eee;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     
     margin: 0;
@@ -23,7 +23,6 @@ export const CenterFlexContainer = styled.div`
 export const MainContainer = styled.div`
   max-width: 1140px;
   margin: 0 auto;
-  min-height: 80vh;
 `;
 
 export const MainWrapper = styled(CenterFlexContainer)`
