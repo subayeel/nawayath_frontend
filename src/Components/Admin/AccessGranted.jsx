@@ -15,7 +15,7 @@ import {
 } from "../Global";
 import { useNavigate } from "react-router-dom";
 
-const AccessGranted = () => {
+const AccessGranted = ({isAuth}) => {
   const navigate = useNavigate();
   const [grantedList, setGrantedList] = useState([]);
   async function getGrantedList() {
@@ -63,8 +63,8 @@ const AccessGranted = () => {
   useEffect(() => {
     getGrantedList();
   }, []);
-
-  return (
+  if(isAuth){
+    return (
     <MainContainer>
       <MainWrapper>
         <Column>
@@ -83,6 +83,10 @@ const AccessGranted = () => {
       </MainWrapper>
     </MainContainer>
   );
+  }else{
+    return(<></>)
+  }
+  
 };
 
 export default AccessGranted;

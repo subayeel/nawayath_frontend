@@ -22,7 +22,7 @@ import {
 import { Button } from "../RegisterPage/RegisterPage.elements";
 
 import { useNavigate } from "react-router-dom";
-const AdminScanner = () => {
+const AdminScanner = ({ isAuth }) => {
   const navigate = useNavigate();
   const [result, setResult] = useState();
   const [delay, setDelay] = useState(1000);
@@ -146,59 +146,65 @@ const AdminScanner = () => {
     setModalState(false);
     navigate("/access-granted");
   }
+  if (isAuth) {
+    return (
+      <>
+        <MainContainer>
+          <MainWrapper>
+            <StyledModal
+              onRequestClose={closeModal}
+              handleState={setModalState}
+              isOpen={modalState}
+            >
+              <ModalContent>
+                <CloseIcon onClick={closeModal} />
 
-  return (
-    <>
-      <MainContainer>
-        <MainWrapper>
-          <StyledModal
-            onRequestClose={closeModal}
-            handleState={setModalState}
-            isOpen={modalState}
-          >
-            <ModalContent>
-              <CloseIcon onClick={closeModal} />
+                <ImgWrap>
+                  <Img
+                    loading="lazy"
+                    src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/check.png?alt=media&token=5b833cd4-760d-4a16-8738-5ebdfc86d563"
+                  />
+                </ImgWrap>
+                <Text3>Access Granted!</Text3>
+                <HighlitedText>{name}</HighlitedText>
+                <Text3>{teamName}</Text3>
+                <HighlitedText>
+                  <Button onClick={closeModal} to="/access-granted">
+                    Ok
+                  </Button>
+                </HighlitedText>
+              </ModalContent>
+            </StyledModal>
 
-              <ImgWrap>
-                <Img loading="lazy" src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/check.png?alt=media&token=5b833cd4-760d-4a16-8738-5ebdfc86d563" />
-              </ImgWrap>
-              <Text3>Access Granted!</Text3>
-              <HighlitedText>{name}</HighlitedText>
-              <Text3>{teamName}</Text3>
-              <HighlitedText>
-                <Button onClick={closeModal} to="/access-granted">
-                  Ok
-                </Button>
-              </HighlitedText>
-            </ModalContent>
-          </StyledModal>
-
-          {dataRecieved ? (
-            ""
-          ) : (
-            <ScannerContainer>
-            <Text3>Scan QR to grant permission</Text3>
-              <QrReader
-                facingMode={selected}
-                delay={delay}
-                onError={handleError}
-                style={previewStyle}
-                onScan={handleScan}
-              />
-              <SelectField
-                onChange={(e) => {
-                  setSelected(e.target.value);
-                }}
-              >
-                <option value={"environment"}>Back-Camera</option>
-                <option value={"user"}>Front-Camera</option>
-              </SelectField>
-            </ScannerContainer>
-          )}
-        </MainWrapper>
-      </MainContainer>
-    </>
-  );
+            {dataRecieved ? (
+              ""
+            ) : (
+              <ScannerContainer>
+                <Text3>Scan QR to grant permission</Text3>
+                <QrReader
+                  facingMode={selected}
+                  delay={delay}
+                  onError={handleError}
+                  style={previewStyle}
+                  onScan={handleScan}
+                />
+                <SelectField
+                  onChange={(e) => {
+                    setSelected(e.target.value);
+                  }}
+                >
+                  <option value={"environment"}>Back-Camera</option>
+                  <option value={"user"}>Front-Camera</option>
+                </SelectField>
+              </ScannerContainer>
+            )}
+          </MainWrapper>
+        </MainContainer>
+      </>
+    );
+  } else {
+    return <></>;
+  }
 };
 
 export default AdminScanner;

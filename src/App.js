@@ -163,9 +163,9 @@ function App() {
             <Route path="/my-team" element={<MyTeam phone={phone}/>} />
 
             {/* Admin routes */}
-            <Route path="/admin-scanner" element={<AdminScanner />} />
-            <Route path="/access-granted" element={<AccessGranted />} />
-            <Route path="/auction-handler" element={<AuctionHandler />} />
+            <Route path="/admin-scanner" element={<AdminScanner isAuth={isAuth}/>} />
+            <Route path="/access-granted" element={<AccessGranted isAuth={isAuth}/>} />
+            <Route path="/auction-handler" element={<AuctionHandler isAuth={isAuth}/>} />
 
 
             {/* Player profile */}
