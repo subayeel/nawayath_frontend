@@ -103,7 +103,7 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
             <CloseIcon onClick={closeModal} />
 
             <ImgWrap>
-              <Img src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/closed.png?alt=media&token=0957f6f3-a13d-4399-8d94-d69a91e51e3b" />
+              <Img loading="lazy" src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/closed.png?alt=media&token=0957f6f3-a13d-4399-8d94-d69a91e51e3b" />
             </ImgWrap>
             <Text3>Player Registration has been Closed!</Text3>
             <HighlitedText>

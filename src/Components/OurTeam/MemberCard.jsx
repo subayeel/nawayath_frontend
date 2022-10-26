@@ -16,7 +16,7 @@ function MemberCard({ imgsrc, heading, position, desc }) {
       <MemberCardContainer>
         <MemberCardWrapper>
           <ImgWrap>
-            <Img src={imgsrc}></Img>
+            <Img  loading="lazy"  src={imgsrc}></Img>
           </ImgWrap>
           <TextWrap>
             <CardHeading>{heading}</CardHeading>

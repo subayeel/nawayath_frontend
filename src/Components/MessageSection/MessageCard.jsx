@@ -15,7 +15,7 @@ const MessageCard = ({title,message,imgUrl}) => {
       <MessageCardContainer>
         <MessageCardWrapper>
           <ImgWrap>
-            <Img src={imgUrl} />
+            <Img  loading="lazy" src={imgUrl} />
           </ImgWrap>
           <TextWrap>
             <Title>{title}</Title>

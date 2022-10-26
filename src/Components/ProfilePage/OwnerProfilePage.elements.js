@@ -85,6 +85,30 @@ export const SquareButton = styled(Link)`
   }
 `;
 
+export const SquareButtonAnchor = styled.a`
+  padding: 7px 14px;
+  color: ${(props)=>props.primary?"white":"#1b1a55"};;
+  background-color: ${(props)=>props.primary?"#1b1a55":"#fff"};
+  border-radius: 4px;
+  width: min-content;
+  height: 48px;
+  margin: 14px 7px;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  border: ${(props)=>props.primary?"none":"2px solid #1b1a55"};
+  &:hover {
+    background-color: black;
+    color:#fff;
+    cursor: pointer;
+    border: ${(props)=>props.primary?"none":"2px solid black"};
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 200px;
+  }
+`;
+
 export const PlayerCardWrapper = styled.div`
 display: grid;
 padding: 7px 14px;

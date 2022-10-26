@@ -9,19 +9,19 @@ import {
   MDBCardImage,
   MDBBreadcrumb,
   MDBBreadcrumbItem,
-  
 } from "mdb-react-ui-kit";
 import { useParams } from "react-router-dom";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../config";
 import { useEffect } from "react";
-import { FaPhone } from "react-icons/fa";
-import { SquareButton } from "./OwnerProfilePage.elements";
+import { FaPhone, FaWhatsapp } from "react-icons/fa";
+import { SquareButton,SquareButtonAnchor } from "./OwnerProfilePage.elements";
 
 export default function PlayerProfile() {
   const { id } = useParams();
 
   const [fullName, setName] = useState();
+  const [callHref,setCallHref] = useState("")
   const [playerDetails, setPlayerDetails] = useState({
     dob: "",
     educationInstitute: "",
@@ -44,6 +44,13 @@ export default function PlayerProfile() {
     sportsClub: "",
     trouserSize: "",
   });
+
+
+  const handleMessaging = (number)=>{
+    window.location.replace('https://wa.me/91'+number)
+  }
+
+ 
 
   async function getPlayerDetails() {
     const q = query(
@@ -83,6 +90,7 @@ export default function PlayerProfile() {
 
   useEffect(() => {
     getFullName();
+    setCallHref("tel:"+playerDetails.mobileNumber)
   }, [playerDetails]);
   return (
     <section style={{ backgroundColor: "#eee" }}>
@@ -106,20 +114,25 @@ export default function PlayerProfile() {
             <MDBCard className="mb-4">
               <MDBCardBody className="text-center">
                 <MDBCardImage
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                  loading="lazy"
+                  src={playerDetails.playerImageUrl}
                   alt="avatar"
-                  className="rounded-circle"
-                  style={{ width: "150px" }}
+                  className="rounded-circle mb-2"
+                  style={{
+                    width: "150px",
+                    height: "150px",
+                    objectFit: "cover",
+                  }}
                   fluid
                 />
-                <p className="text-muted mb-1">
-                  {fullName}
-                </p>
-                <p className="text-muted mb-4">{playerDetails.sportsClub}</p>
+                <p className="text-muted mb-2">{fullName}</p>
+                <p className="text-muted mb-2">{playerDetails.sportsClub}</p>
                 <div className="d-flex justify-content-center mb-2">
-                  <SquareButton primary>Call</SquareButton>
-                  <SquareButton>Message</SquareButton>
-                  
+                <a >
+                  <SquareButtonAnchor href={callHref} primary>
+                    Call <FaPhone className="mx-2" />
+                  </SquareButtonAnchor></a>
+                  <SquareButton onClick={()=>handleMessaging(playerDetails.mobileNumber)}>Message<FaWhatsapp className="mx-2"/></SquareButton>
                 </div>
               </MDBCardBody>
             </MDBCard>
@@ -132,9 +145,7 @@ export default function PlayerProfile() {
                     <MDBCardText>Full Name</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">
-                    {fullName}
-                    </MDBCardText>
+                    <MDBCardText className="text-muted">{fullName}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -143,7 +154,9 @@ export default function PlayerProfile() {
                     <MDBCardText>Date of Birth</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{playerDetails.dob}</MDBCardText>
+                    <MDBCardText className="text-muted">
+                      {playerDetails.dob}
+                    </MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -163,7 +176,9 @@ export default function PlayerProfile() {
                     <MDBCardText>Native Location</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{playerDetails.nativeLoc}</MDBCardText>
+                    <MDBCardText className="text-muted">
+                      {playerDetails.nativeLoc}
+                    </MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -172,7 +187,9 @@ export default function PlayerProfile() {
                     <MDBCardText>Mobile</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{playerDetails.mobileNumber}</MDBCardText>
+                    <MDBCardText className="text-muted">
+                      {playerDetails.mobileNumber}
+                    </MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -203,7 +220,9 @@ export default function PlayerProfile() {
                     <MDBCardText>Shirt Size</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{playerDetails.shirtSize}</MDBCardText>
+                    <MDBCardText className="text-muted">
+                      {playerDetails.shirtSize}
+                    </MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -212,7 +231,9 @@ export default function PlayerProfile() {
                     <MDBCardText>Trouser Size</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{playerDetails.trouserSize}</MDBCardText>
+                    <MDBCardText className="text-muted">
+                      {playerDetails.trouserSize}
+                    </MDBCardText>
                   </MDBCol>
                 </MDBRow>
               </MDBCardBody>

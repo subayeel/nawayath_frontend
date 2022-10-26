@@ -45,7 +45,7 @@ function Footer() {
       width: "70%",
       height: "70%",
       position: "absolute",
-      
+
       left: "50%",
       top: "55%",
       transform: "translate(-50%, -50%)",
@@ -62,7 +62,10 @@ function Footer() {
         <CloseIcon onClick={closeModal} />
         <ModalContent>
           <ImgWrap>
-            <Img src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/ncl-logo.PNG?alt=media&token=6fe8663e-08b5-4ab4-9cba-3a42128b2e4c" />
+            <Img
+              loading="lazy"
+              src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/ncl-logo.PNG?alt=media&token=6fe8663e-08b5-4ab4-9cba-3a42128b2e4c"
+            />
           </ImgWrap>
           <HeadingContainer>
             <Line></Line>

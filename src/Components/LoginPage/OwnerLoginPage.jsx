@@ -159,7 +159,7 @@ const OwnerLoginPage = () => {
             </OrLineContainer>
 
             <ImgWrapper>
-              <Img src="https://firebasestorage.googleapis.com/v0/b/eduqate-d65f5.appspot.com/o/leader.png?alt=media&token=5d7bc820-ef78-4acd-b6a5-39c0f6abe304" />
+              <Img loading="lazy"  src="https://firebasestorage.googleapis.com/v0/b/eduqate-d65f5.appspot.com/o/leader.png?alt=media&token=5d7bc820-ef78-4acd-b6a5-39c0f6abe304" />
             </ImgWrapper>
             <LoginButton radius="36px" to="/owner-register">
               Register as owner

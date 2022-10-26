@@ -160,7 +160,7 @@ const AdminScanner = () => {
               <CloseIcon onClick={closeModal} />
 
               <ImgWrap>
-                <Img src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/check.png?alt=media&token=5b833cd4-760d-4a16-8738-5ebdfc86d563" />
+                <Img loading="lazy" src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/check.png?alt=media&token=5b833cd4-760d-4a16-8738-5ebdfc86d563" />
               </ImgWrap>
               <Text3>Access Granted!</Text3>
               <HighlitedText>{name}</HighlitedText>
