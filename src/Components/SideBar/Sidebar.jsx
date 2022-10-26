@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import {  useNavigate,useLocation } from "react-router-dom";
- 
+import { useNavigate, useLocation } from "react-router-dom";
+
 import Modal from "react-modal";
 import { BtnContainer, Button } from "../RegisterPage/RegisterPage.elements";
 
@@ -23,10 +23,22 @@ import { authentication } from "../../config";
 
 const Sidebar = ({ isOpen, toggle, isAuth }) => {
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   // to open the rules modal
   const [modalState, setModalState] = useState(false);
+  const [ownerModalState, setOwnerModalState] = useState(false);
+
+  function openOwnerModal() {
+    setOwnerModalState(true);
+    toggle()
+
+  }
+  function closeOwnerModal() {
+    setOwnerModalState(false);
+    
+  }
+
   function openModal() {
     setModalState(true);
   }
@@ -52,7 +64,7 @@ const Sidebar = ({ isOpen, toggle, isAuth }) => {
         // Sign-out successful.
 
         console.log("Logged out");
-        navigate("/")
+        navigate("/");
       })
       .catch((error) => {
         // An error happened.
@@ -81,6 +93,28 @@ const Sidebar = ({ isOpen, toggle, isAuth }) => {
           </HighlitedText>
         </ModalContent>
       </Modal>
+      {/* owner Model */}
+      <Modal
+        style={customStyles}
+        onRequestClose={closeOwnerModal}
+        handleState={setOwnerModalState}
+        isOpen={ownerModalState}
+      >
+        <ModalContent>
+          <CloseIcon onClick={closeOwnerModal} />
+
+          <ImgWrap>
+            <Img
+              loading="lazy"
+              src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/closed.png?alt=media&token=0957f6f3-a13d-4399-8d94-d69a91e51e3b"
+            />
+          </ImgWrap>
+          <Text3>Team Owner Registration has been Closed!</Text3>
+          <HighlitedText>
+            <Button onClick={closeOwnerModal}>Ok</Button>
+          </HighlitedText>
+        </ModalContent>
+      </Modal>
       <SidebarWrapper>
         <LogoContainer>
           <img
@@ -98,9 +132,10 @@ const Sidebar = ({ isOpen, toggle, isAuth }) => {
           </SidebarLink>
 
           <SidebarLink
+            onClick={openOwnerModal}
             className={location.pathname === "/owner-register" ? "active" : ""}
-            onClick={toggle}
-            to="/owner-register"
+            
+            to=""
           >
             Owner Registeration
           </SidebarLink>
@@ -132,24 +167,25 @@ const Sidebar = ({ isOpen, toggle, isAuth }) => {
           </SidebarLink>
           <BtnContainer>
             {isAuth ? (
-            <>
-              <Button onClick={handleSignOut} to="/">
-                Logout
-              </Button>
-            </>
-          ) : (
-            <>
-              <Button
-                className={location.pathname === "/owner-login" ? "active" : ""}
-                onClick={toggle}
-                to="/owner-login"
-              >
-                Login as Owner
-              </Button>
-            </>
-          )}
+              <>
+                <Button onClick={handleSignOut} to="/">
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  className={
+                    location.pathname === "/owner-login" ? "active" : ""
+                  }
+                  onClick={toggle}
+                  to="/owner-login"
+                >
+                  Login as Owner
+                </Button>
+              </>
+            )}
           </BtnContainer>
-          
         </SidebarMenu>
       </SidebarWrapper>
     </SidebarContainer>

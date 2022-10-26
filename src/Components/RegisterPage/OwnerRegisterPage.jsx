@@ -31,9 +31,13 @@ import { storage } from "../../config.js";
 
 import { checkoutHandler } from "../../RazorPay";
 
+import { Button } from "../RegisterPage/RegisterPage.elements";
+
+
 const OwnerRegisterPage = () => {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+  const [ownerModalState,setOwnerModalState] = useState(false)
 
   const initialValues = {
     teamName: "",
@@ -97,11 +101,11 @@ const OwnerRegisterPage = () => {
   };
 
   //innitiating payment on condition
-  useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      checkoutHandler(10000, formValues, "owner");
-    }
-  }, [formErrors]);
+  // useEffect(() => {
+  //   if (Object.keys(formErrors).length === 0 && isSubmit) {
+  //     checkoutHandler(10000, formValues, "owner");
+  //   }
+  // }, [formErrors]);
 
   const validate = (values) => {
     const errors = {};
@@ -148,6 +152,13 @@ const OwnerRegisterPage = () => {
   }
 
   const [modalState, setModalState] = useState(false);
+
+  function openOwnerModal() {
+    setOwnerModalState(true);
+  }
+  function closeOwnerModal() {
+    setOwnerModalState(false);
+  }
   return (
     <>
       <FormContainer>
@@ -749,6 +760,28 @@ const OwnerRegisterPage = () => {
               <Img src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/ncl-logo.PNG?alt=media&token=6fe8663e-08b5-4ab4-9cba-3a42128b2e4c" />
               <Text3>Signature of Organizer</Text3>
             </ImgWrap>
+          </ModalContent>
+        </Modal>
+
+        <Modal
+          style={customStyles}
+          onRequestClose={closeOwnerModal}
+          handleState={setOwnerModalState}
+          isOpen={ownerModalState}
+        >
+          <ModalContent>
+            <CloseIcon onClick={closeOwnerModal} />
+
+            <ImgWrap>
+              <Img
+                loading="lazy"
+                src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/closed.png?alt=media&token=0957f6f3-a13d-4399-8d94-d69a91e51e3b"
+              />
+            </ImgWrap>
+            <Text3>Team Owner Registration has been Closed!</Text3>
+            <HighlitedText>
+              <Button onClick={closeOwnerModal}>Ok</Button>
+            </HighlitedText>
           </ModalContent>
         </Modal>
         <FormWrapper>

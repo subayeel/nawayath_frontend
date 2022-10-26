@@ -159,7 +159,7 @@ const AuctionHandler = () => {
               </option>
               <option value="dvsUnited">DVS United</option>
               <option value="penthouseUnited">Penthouse United</option>
-              <option value="mankiChargers">Manki Chargers</option>
+              <option value="mankiUnited">Manki United</option> 
               <option value="nawayathBulls">Nawayath Bulls</option>
               <option value="bangaloreChallengers">
                 Bangalore Challengers
@@ -167,7 +167,7 @@ const AuctionHandler = () => {
               <option value="rasbaharChallengers">Rasbahar Challengers</option>
               <option value="sewn11">Sewn 11</option>
               <option value="risingStar">Rising Star</option>
-              <option value="azaad">Azaad</option>
+              
             </SelectField>
             <MDBBtn color="success" onClick={handleSold}>
               Sold

@@ -62,8 +62,8 @@ const PlayerCard = ({ playerId }) => {
     <MDBCard className="mb-4">
       <PlayerCardWrapper>
         
-          <p className="text-muted mb-1">{playerId}</p>
-          <p className="fs-6 mb-1">{fullName}</p>
+          <p className="text-muted mb-1 my-1">{playerId}</p>
+          <p className="text-muted mb-1 my-1">{fullName}</p>
         
 
         <SquareButton to={`/player-profile/${playerId}`} primary>

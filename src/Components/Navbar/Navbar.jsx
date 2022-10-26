@@ -54,24 +54,32 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
         // Sign-out successful.
 
         console.log("Logged out");
-        navigate("/")
+        navigate("/");
       })
       .catch((error) => {
         // An error happened.
         console.log(error);
       });
-      
+
     setProfileDropDown(false);
   };
 
   // to open the rules modal
   const [modalState, setModalState] = useState(false);
+  const [ownerModalState, setOwnerModalState] = useState(false);
 
   function openModal() {
     setModalState(true);
   }
   function closeModal() {
     setModalState(false);
+  }
+
+  function openOwnerModal() {
+    setOwnerModalState(true);
+  }
+  function closeOwnerModal() {
+    setOwnerModalState(false);
   }
   const customStyles = {
     content: {
@@ -103,11 +111,36 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
             <CloseIcon onClick={closeModal} />
 
             <ImgWrap>
-              <Img loading="lazy" src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/closed.png?alt=media&token=0957f6f3-a13d-4399-8d94-d69a91e51e3b" />
+              <Img
+                loading="lazy"
+                src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/closed.png?alt=media&token=0957f6f3-a13d-4399-8d94-d69a91e51e3b"
+              />
             </ImgWrap>
             <Text3>Player Registration has been Closed!</Text3>
             <HighlitedText>
               <Button onClick={closeModal}>Ok</Button>
+            </HighlitedText>
+          </ModalContent>
+        </Modal>
+        {/* owner Model */}
+        <Modal
+          style={customStyles}
+          onRequestClose={closeOwnerModal}
+          handleState={setOwnerModalState}
+          isOpen={ownerModalState}
+        >
+          <ModalContent>
+            <CloseIcon onClick={closeOwnerModal} />
+
+            <ImgWrap>
+              <Img
+                loading="lazy"
+                src="https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/closed.png?alt=media&token=0957f6f3-a13d-4399-8d94-d69a91e51e3b"
+              />
+            </ImgWrap>
+            <Text3>Team Owner Registration has been Closed!</Text3>
+            <HighlitedText>
+              <Button onClick={closeOwnerModal}>Ok</Button>
             </HighlitedText>
           </ModalContent>
         </Modal>
@@ -129,7 +162,7 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
               Home
             </NavLinks>
           </NavItem>
-          
+
           <NavItem>
             <NavDropDown
               onMouseEnter={() => setRDropState(true)}
@@ -153,10 +186,11 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
                 lmargin="48px"
               >
                 <NavLinks
+                  onClick={openOwnerModal}
                   className={
                     location.pathname === "/owner-register" ? "active" : ""
                   }
-                  to="/owner-register"
+                  to=""
                 >
                   Owner Registration
                 </NavLinks>
@@ -220,51 +254,49 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
               {isAdmin ? (
                 <>
                   <NavLinks
-                  onClick={() => {
-                    setProfileDropDown(false);
-                  }}
-                  to="/admin-scanner"
-                >
-                  Scan QR
-                </NavLinks>
-                <NavLinks
-                  onClick={() => {
-                    setProfileDropDown(false);
-                  }}
-                  to="/access-granted"
-                >
-                  Guests
-                </NavLinks>
-                <NavLinks
-                  onClick={() => {
-                    setProfileDropDown(false);
-                  }}
-                  to="/auction-handler"
-                >
-                  Auction Handler
-                </NavLinks>
+                    onClick={() => {
+                      setProfileDropDown(false);
+                    }}
+                    to="/admin-scanner"
+                  >
+                    Scan QR
+                  </NavLinks>
+                  <NavLinks
+                    onClick={() => {
+                      setProfileDropDown(false);
+                    }}
+                    to="/access-granted"
+                  >
+                    Guests
+                  </NavLinks>
+                  <NavLinks
+                    onClick={() => {
+                      setProfileDropDown(false);
+                    }}
+                    to="/auction-handler"
+                  >
+                    Auction Handler
+                  </NavLinks>
                 </>
-                
               ) : (
                 <>
                   <NavLinks
-                  onClick={() => {
-                    setProfileDropDown(false);
-                  }}
-                  to="/profile-page"
-                >
-                  Profile
-                </NavLinks>
-                <NavLinks
-                  onClick={() => {
-                    setProfileDropDown(false);
-                  }}
-                  to="/my-team"
-                >
-                  My Team
-                </NavLinks>
+                    onClick={() => {
+                      setProfileDropDown(false);
+                    }}
+                    to="/profile-page"
+                  >
+                    Profile
+                  </NavLinks>
+                  <NavLinks
+                    onClick={() => {
+                      setProfileDropDown(false);
+                    }}
+                    to="/my-team"
+                  >
+                    My Team
+                  </NavLinks>
                 </>
-                
               )}
 
               <NavLinks onClick={handleSignOut}>Logout</NavLinks>
