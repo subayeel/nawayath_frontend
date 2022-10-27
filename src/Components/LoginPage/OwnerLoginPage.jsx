@@ -33,15 +33,19 @@ const OwnerLoginPage = () => {
   const [isOwnerNum, setIsOwnerNum] = useState(false);
   const navigate = useNavigate();
   const ownerNumbers = [
-    "+919740730152",//admin
+    "+919740730152", //admin
     "+919611950190",
     "+919738809009",
+    "+919686971813",
     "+917996477891",
-    "+919845260000",
+    "+919036360823",
     "+919972132310",
     "+919986663666",
     "+919902722823",
-    "+919611767705"
+    
+    "+919845260000",
+
+    "+919611767705",
   ];
   //auth variables
 
