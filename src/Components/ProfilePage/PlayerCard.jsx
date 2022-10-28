@@ -34,7 +34,22 @@ const PlayerCard = ({ playerId }) => {
   }
 
   const getFullName = () => {
-    if (playerDetails.firstName === undefined) {
+    if (
+      playerDetails.lastName === undefined &&
+      playerDetails.firstName === undefined
+    ) {
+      setName(playerDetails.middleName);
+    } else if (
+      playerDetails.firstName === undefined &&
+      playerDetails.middleName === undefined
+    ) {
+      setName(playerDetails.lastName);
+    } else if (
+      playerDetails.lastName === undefined &&
+      playerDetails.middleName === undefined
+    ) {
+      setName(playerDetails.firstName);
+    } else if (playerDetails.firstName === undefined) {
       setName(playerDetails.middleName + " " + playerDetails.lastName);
     } else if (playerDetails.middleName === undefined) {
       setName(playerDetails.firstName + " " + playerDetails.lastName);
@@ -61,13 +76,10 @@ const PlayerCard = ({ playerId }) => {
   return (
     <MDBCard className="mb-4">
       <PlayerCardWrapper>
-        
-          <p className="text-muted mb-1 my-1">{playerId}</p>
-          <p className="text-muted mb-1 my-1">{fullName}</p>
-        
+        <p className="text-muted mb-1 my-1">{playerId}</p>
+        <p className="text-muted mb-1 my-1">{fullName}</p>
 
         <SquareButton to={`/player-profile/${playerId}`} primary>
-          
           <FaArrowRight />
         </SquareButton>
       </PlayerCardWrapper>
