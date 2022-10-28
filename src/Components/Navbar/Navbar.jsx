@@ -303,7 +303,12 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
             </ProfileDropdown>
           </>
         ) : (
-          ""
+          <NavLinks
+            className={location.pathname === "/owner-login" ? "active" : ""}
+            to="/owner-login"
+          >
+            LOGIN
+          </NavLinks>
         )}
       </NavbarContainer>
     </Nav>

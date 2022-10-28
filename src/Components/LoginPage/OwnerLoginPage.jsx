@@ -42,10 +42,8 @@ const OwnerLoginPage = () => {
     "+919972132310",
     "+919986663666",
     "+919902722823",
-    
-  
 
-    "+919611767705",//admin
+    "+919611767705", //admin
   ];
   //auth variables
 
@@ -180,21 +178,14 @@ const OwnerLoginPage = () => {
               {otpState ? (
                 <MDBInput label="Enter OTP" onChange={handleOtpChange} />
               ) : (
+                               
                 ""
               )}
             </TextfieldWrap>
 
-            <OrLine>Not registered?</OrLine>
-
-            <ImgWrapper>
-              <Img
-                loading="lazy"
-                src="https://firebasestorage.googleapis.com/v0/b/eduqate-d65f5.appspot.com/o/leader.png?alt=media&token=5d7bc820-ef78-4acd-b6a5-39c0f6abe304"
-              />
-            </ImgWrapper>
-            <LoginButton radius="36px" to="/owner-register">
+            {/* <LoginButton radius="36px" to="/owner-register">
               Register as owner
-            </LoginButton>
+            </LoginButton> */}
             <div id="sendOTP"></div>
           </LoginForm>
         </LoginWrapper>

@@ -4,7 +4,7 @@ import { FaGoogle, FaFacebookF } from "react-icons/fa";
 
 export const LoginContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 60vh;
   display: flex;
   color: #fff;
   justify-content: center;
@@ -16,13 +16,13 @@ export const LoginContainer = styled.div`
 export const LoginWrapper = styled.div`
   display: flex;
 
-  min-height: 400px;
-  width: 300px;
+  
+  /* width: 300px; */
   position: relative;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   
-  padding: 28px;
+  padding: 48px 28px;
   background-color: white;
   &:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -57,6 +57,7 @@ export const BottomLine = styled.p`
 `;
 export const LoginForm = styled.form`
   width: 100%;
+  padding:36px 0;
 `;
 
 export const TextfieldWrap = styled.div`
@@ -124,7 +125,7 @@ export const BtnWrap = styled.div`
 `;
 export const TextWrap = styled.div`
   justify-content: start;
-  margin: 20px 0;
+  margin: 0 0 14px 0;
 `;
 export const OrLineContainer = styled.div`
   height: 40px;
@@ -204,6 +205,7 @@ export const LoginButton = styled(Link)`
   width:100%;
   &:hover{
     background-color: black;
+    color:#fff;
   }
 `;
 
