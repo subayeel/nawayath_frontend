@@ -17,7 +17,7 @@ import { db } from "../../config";
 import { SquareButton, PlayerCardWrapper } from "./OwnerProfilePage.elements";
 import { FaArrowRight } from "react-icons/fa";
 
-const PlayerCard = ({ playerId }) => {
+const PlayerCard = ({ playerId, biddingPoints,teamName }) => {
   const [playerDetails, setPlayerDetails] = useState([]);
   const [fullName, setName] = useState();
   async function getPlayerDetails() {
@@ -68,6 +68,7 @@ const PlayerCard = ({ playerId }) => {
 
   useEffect(() => {
     getFullName();
+    
   }, [playerDetails]);
 
   useEffect(() => {
@@ -76,10 +77,11 @@ const PlayerCard = ({ playerId }) => {
   return (
     <MDBCard className="mb-4">
       <PlayerCardWrapper>
-        <p className="text-muted mb-1 my-1">{playerId}</p>
-        <p className="text-muted mb-1 my-1">{fullName}</p>
+        {/* <p className="text-muted mb-1 my-1">{playerId}</p> */}
+        <p className="text mb-1 my-1">{fullName}</p>
+        <p className="text-muted mb-1 my-1">{biddingPoints}</p>
 
-        <SquareButton to={`/player-profile/${playerId}`} primary>
+        <SquareButton to={`/player-profile/${teamName}/${playerId}`} primary>
           <FaArrowRight />
         </SquareButton>
       </PlayerCardWrapper>

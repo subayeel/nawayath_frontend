@@ -36,6 +36,8 @@ import AuctionHandler from "./Components/Admin/AuctionHandler";
 import PlayerProfile from "./Components/ProfilePage/PlayerProfile";
 import MyTeam from "./Components/ProfilePage/MyTeam"
 import LivePage from "./Components/Home/LivePage";
+import Teams from "./Components/ProfilePage/Teams"
+import TeamPage from "./Components/ProfilePage/TeamPage";
 
 //function of scroll to top
 const Wrapper = ({ children }) => {
@@ -136,15 +138,15 @@ function App() {
           />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/player-register" element={<PlayerRegisterPage />} />
-            <Route path="/owner-register" element={<OwnerRegisterPage />} />
+            {/* <Route path="/player-register" element={<PlayerRegisterPage />} /> */}
+            {/* <Route path="/owner-register" element={<OwnerRegisterPage />} /> */}
             <Route
               path="/volunteer-register"
               element={<VolunteerRegisterPage />}
             />
-            <Route path="/register-option" element={<RegisterOptionPage />} />
+            {/* <Route path="/register-option" element={<RegisterOptionPage />} /> */}
             <Route path="/owner-login" element={<OwnerLoginPage />} />
-            <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+            {/* <Route path="/paymentsuccess" element={<PaymentSuccess />} /> */}
             <Route path="/ourteam" element={<OurTeam />} />
             <Route path="/live-page" element={<LivePage/>}/>
 
@@ -161,6 +163,8 @@ function App() {
               }
             />
             <Route path="/my-team" element={<MyTeam phone={phone}/>} />
+            <Route path="/teams" element={<Teams />}/>
+            <Route path="/team-page/:team" element={<TeamPage />}/>
 
             {/* Admin routes */}
             <Route path="/admin-scanner" element={<AdminScanner isAuth={isAuth}/>} />
@@ -170,7 +174,7 @@ function App() {
 
             {/* Player profile */}
             <Route path="/player-profile" element={<PlayerProfile/>}/>
-            <Route path="/player-profile/:id" element={<PlayerProfile/>}/>
+            <Route path="/player-profile/:team/:id" element={<PlayerProfile/>}/>
 
           </Routes>
           <Outlet />

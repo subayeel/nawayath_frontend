@@ -133,11 +133,11 @@ const Sidebar = ({ isOpen, toggle, isAuth }) => {
 
           <SidebarLink
             onClick={openOwnerModal}
-            className={location.pathname === "/owner-register" ? "active" : ""}
+            className={location.pathname === "/our-team" ? "active" : ""}
             
-            to=""
+            to="/our-team"
           >
-            Owner Registeration
+            Meet Our team
           </SidebarLink>
           <SidebarLink
             className={location.pathname === "/player-register" ? "active" : ""}
@@ -147,24 +147,10 @@ const Sidebar = ({ isOpen, toggle, isAuth }) => {
             }}
             to=""
           >
-            Player Registeration
+            NCV-V Teams
           </SidebarLink>
-          <SidebarLink
-            className={
-              location.pathname === "/volunteer-register" ? "active" : ""
-            }
-            onClick={toggle}
-            to="/volunteer-register"
-          >
-            Volunteer Registeration
-          </SidebarLink>
-          <SidebarLink
-            className={location.pathname === "/ourteam" ? "active" : ""}
-            onClick={toggle}
-            to="/ourteam"
-          >
-            Meet Our Team
-          </SidebarLink>
+          
+              
           <BtnContainer>
             {isAuth ? (
               <>

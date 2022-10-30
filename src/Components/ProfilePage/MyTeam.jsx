@@ -4,10 +4,24 @@ import { collection, query, where, getDocs, addDoc } from "firebase/firestore";
 import { db } from "../../config";
 
 import PlayerCard from "./PlayerCard";
+import { Link } from "react-router-dom";
+import {
+  MDBCol,
+  MDBContainer,
+  MDBRow,
+  MDBCardHeader,
+  MDBCard,
+  MDBCardText,
+  MDBCardBody,
+  MDBCardImage,
+  MDBBreadcrumb,
+  MDBBreadcrumbItem,
+} from "mdb-react-ui-kit";
 
-import { MDBContainer } from "mdb-react-ui-kit";
+
 
 const MyTeam = ({ phone }) => {
+  
   const [teamPlayers, setTeamPlayers] = useState([]);
   const [ownerTeamId, setOwnerTeamId] = useState();
 
@@ -21,13 +35,11 @@ const MyTeam = ({ phone }) => {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       setOwnerTeamId(doc.data().teamId);
-      console.log("god =>>" + ownerTeamId);
     });
   }
 
   //getting team players
   async function getTeamPlayers() {
-    console.log("gtp =>>" + ownerTeamId);
     let arr = [];
     const querySnapshot = await getDocs(collection(db, ownerTeamId));
     querySnapshot.forEach((doc) => {
@@ -43,12 +55,32 @@ const MyTeam = ({ phone }) => {
   }, [phone, ownerTeamId]);
 
   function displayPlayerCard(props) {
-    return <PlayerCard playerId={props.playerId}></PlayerCard>;
+    return (
+      <PlayerCard
+        teamName={ownerTeamId}
+        biddingPoints={props.biddingPoints}
+        playerId={props.playerId}
+      ></PlayerCard>
+    );
   }
   return (
-    <MainContainer>
-      <MainWrapper>
-      
+    <MainContainer className="py-5">
+    <MDBRow className="mt-2">
+        <MDBCol>
+          <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
+            <MDBBreadcrumbItem>
+              <Link to="/">Home</Link>
+            </MDBBreadcrumbItem>
+            <MDBBreadcrumbItem>
+              <Link to={"/teams"}>All teams</Link>
+            </MDBBreadcrumbItem>
+
+            <MDBBreadcrumbItem active>{ownerTeamId}</MDBBreadcrumbItem>
+          </MDBBreadcrumb>
+        </MDBCol>
+      </MDBRow>
+      <MainWrapper style={{ flexDirection: "column" }}>
+
         <MDBContainer>{teamPlayers.map(displayPlayerCard)}</MDBContainer>
       </MainWrapper>
     </MainContainer>

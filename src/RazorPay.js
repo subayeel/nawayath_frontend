@@ -74,7 +74,7 @@ export const checkoutHandler = async (amount, formValues, collectionName) => {
     order_id: order.id,
 
     callback_url: "http://54.250.201.101:5006/api/paymentverification",
-    
+
     // prefill: {
     //   name: "Gaurav Kumar",
     //   email: "gaurav.kumar@example.com",

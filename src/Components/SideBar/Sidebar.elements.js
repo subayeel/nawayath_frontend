@@ -19,12 +19,13 @@ export const SidebarContainer = styled.div`
 
 export const CloseIcon = styled(FaTimes)`
   position: absolute;
+  z-index: 99;
   height: 28px;
   width: 28px;
   color: #fff;
   top: 0;
   right: 0;
-  padding: 14px;
+  margin: 28px;
   transition: 0.2s;
   &:hover {
     color: #ccc;
@@ -64,7 +65,7 @@ export const SidebarMenu = styled.ul`
   padding: 0;
   grid-template-columns: 1fr;
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 768px) {
     grid-template-rows: repeat(6, 60px);
   }
 `;

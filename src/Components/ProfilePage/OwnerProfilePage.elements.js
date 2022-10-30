@@ -2,13 +2,23 @@ import styled from "styled-components";
 import { CenterFlexContainer } from "../Global";
 import { QrReader } from "react-qr-scanner";
 import { Link } from "react-router-dom";
+import { MDBCard } from "mdb-react-ui-kit";
+
+//styled mdb components
+
+export const SMDBCard = styled(MDBCard)`
+  &:hover {
+    transition: 0.1s;
+    transform: scale(1.01,1.01);
+    cursor: pointer;
+  }
+`;
 
 export const ProfilePageContainer = styled.div`
   max-width: 1140px;
 
   margin: auto;
 `;
-
 
 export const ProfilePageWrapper = styled(CenterFlexContainer)`
   height: 80vh;
@@ -63,21 +73,21 @@ export const Img = styled.img`
 
 export const SquareButton = styled(Link)`
   padding: 7px 14px;
-  color: ${(props)=>props.primary?"white":"#1b1a55"};;
-  background-color: ${(props)=>props.primary?"#1b1a55":"#fff"};
+  color: ${(props) => (props.primary ? "white" : "#1b1a55")};
+  background-color: ${(props) => (props.primary ? "#1b1a55" : "#fff")};
   border-radius: 4px;
   width: min-content;
   height: 48px;
   margin: 14px 7px;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: space-around;
-  border: ${(props)=>props.primary?"none":"2px solid #1b1a55"};
+  border: ${(props) => (props.primary ? "none" : "2px solid #1b1a55")};
   &:hover {
     background-color: black;
-    color:#fff;
+    color: #fff;
     cursor: pointer;
-    border: ${(props)=>props.primary?"none":"2px solid black"};
+    border: ${(props) => (props.primary ? "none" : "2px solid black")};
   }
 
   @media screen and (max-width: 768px) {
@@ -87,21 +97,21 @@ export const SquareButton = styled(Link)`
 
 export const SquareButtonAnchor = styled.a`
   padding: 7px 14px;
-  color: ${(props)=>props.primary?"white":"#1b1a55"};;
-  background-color: ${(props)=>props.primary?"#1b1a55":"#fff"};
+  color: ${(props) => (props.primary ? "white" : "#1b1a55")};
+  background-color: ${(props) => (props.primary ? "#1b1a55" : "#fff")};
   border-radius: 4px;
   width: min-content;
   height: 48px;
   margin: 14px 7px;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: space-around;
-  border: ${(props)=>props.primary?"none":"2px solid #1b1a55"};
+  border: ${(props) => (props.primary ? "none" : "2px solid #1b1a55")};
   &:hover {
     background-color: black;
-    color:#fff;
+    color: #fff;
     cursor: pointer;
-    border: ${(props)=>props.primary?"none":"2px solid black"};
+    border: ${(props) => (props.primary ? "none" : "2px solid black")};
   }
 
   @media screen and (max-width: 768px) {
@@ -110,9 +120,9 @@ export const SquareButtonAnchor = styled.a`
 `;
 
 export const PlayerCardWrapper = styled.div`
-display: grid;
-padding: 7px 14px;
-align-items:center;
-grid-gap: 14px;
-grid-template-columns: max-content auto 100px;
-`
+  display: grid;
+  padding: 7px 14px;
+  align-items: center;
+  grid-gap: 14px;
+  grid-template-columns: max-content auto 100px;
+`;

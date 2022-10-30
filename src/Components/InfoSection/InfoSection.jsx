@@ -15,8 +15,6 @@ import {
   Button,
 } from "./InfoSection.elements";
 
-
-
 const InfoSection = ({
   id,
   lightBg,
@@ -50,18 +48,16 @@ const InfoSection = ({
                     primary={primary ? 1 : 0}
                     dark={dark ? 1 : 0}
                   >
-                    <img
-                      className="blink"
-                      style={{
-                        margin: " 0px 14px 0 0",
-                        height: "16px",
-                        width: "20px",
-                      }}
-                      src={btnIconImg}
-                    />
+                    
 
                     {buttonLabel}
                   </Button>
+                  <Button
+                    to="/teams"
+                    primary={primary ? 1 : 0}
+                    dark={dark ? 1 : 0}
+                    margin="0 0 0 7px "
+                  >NCL-V Teams</Button>
                 </BtnWrap>
               </TextWrapper>
             </Column1>

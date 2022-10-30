@@ -29,7 +29,7 @@ import {
 import Avatar from "./Avatar";
 import { authentication } from "../../config";
 
-import { useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "../RegisterPage/RegisterPage.elements";
 
 function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
@@ -186,6 +186,12 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
                 lmargin="48px"
               >
                 <NavLinks
+                  className={location.pathname === "/teams" ? "active" : ""}
+                  to="teams"
+                >
+                  Teams
+                </NavLinks>
+                {/* <NavLinks
                   onClick={openOwnerModal}
                   className={
                     location.pathname === "/owner-register" ? "active" : ""
@@ -210,7 +216,7 @@ function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
                   to="/volunteer-register"
                 >
                   Volunteer Registration
-                </NavLinks>
+                </NavLinks> */}
                 {isAuth ? (
                   ""
                 ) : (

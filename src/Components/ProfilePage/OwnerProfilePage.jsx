@@ -83,6 +83,7 @@ const OwnerProfilePage = ({ phone, name, teamName, paymentId }) => {
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
+          
           <MDBCol lg="8">
             <MDBCard className="mb-4">
               <MDBCardBody>

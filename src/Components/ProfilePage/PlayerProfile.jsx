@@ -16,13 +16,13 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../config";
 import { useEffect } from "react";
 import { FaPhone, FaWhatsapp } from "react-icons/fa";
-import { SquareButton,SquareButtonAnchor } from "./OwnerProfilePage.elements";
+import { SquareButton, SquareButtonAnchor } from "./OwnerProfilePage.elements";
 
 export default function PlayerProfile() {
-  const { id } = useParams();
+  const { team, id } = useParams();
 
   const [fullName, setName] = useState();
-  const [callHref,setCallHref] = useState("")
+  const [callHref, setCallHref] = useState("");
   const [playerDetails, setPlayerDetails] = useState({
     dob: "",
     educationInstitute: "",
@@ -46,12 +46,9 @@ export default function PlayerProfile() {
     trouserSize: "",
   });
 
-
-  const handleMessaging = (number)=>{
-    window.location.replace('https://wa.me/91'+number)
-  }
-
- 
+  const handleMessaging = (number) => {
+    window.location.replace("https://wa.me/91" + number);
+  };
 
   async function getPlayerDetails() {
     const q = query(
@@ -91,7 +88,7 @@ export default function PlayerProfile() {
 
   useEffect(() => {
     getFullName();
-    setCallHref("tel:"+playerDetails.mobileNumber)
+    setCallHref("tel:" + playerDetails.mobileNumber);
   }, [playerDetails]);
   return (
     <section style={{ backgroundColor: "#eee" }}>
@@ -103,8 +100,12 @@ export default function PlayerProfile() {
                 <Link to="/">Home</Link>
               </MDBBreadcrumbItem>
               <MDBBreadcrumbItem>
-                <Link to="/my-team">My Team</Link>
+                <Link to="/teams">All teams</Link>
               </MDBBreadcrumbItem>
+              <MDBBreadcrumbItem>
+                <Link to={"/team-page/"+team}>{team}</Link>
+              </MDBBreadcrumbItem>
+
               <MDBBreadcrumbItem active>User Profile</MDBBreadcrumbItem>
             </MDBBreadcrumb>
           </MDBCol>
@@ -129,11 +130,17 @@ export default function PlayerProfile() {
                 <p className="text-muted mb-2">{fullName}</p>
                 <p className="text-muted mb-2">{playerDetails.sportsClub}</p>
                 <div className="d-flex justify-content-center mb-2">
-                <a >
-                  <SquareButtonAnchor href={callHref} primary>
-                    Call <FaPhone className="mx-2" />
-                  </SquareButtonAnchor></a>
-                  <SquareButton onClick={()=>handleMessaging(playerDetails.mobileNumber)}>Message<FaWhatsapp className="mx-2"/></SquareButton>
+                  <a>
+                    <SquareButtonAnchor href={callHref} primary>
+                      Call <FaPhone className="mx-2" />
+                    </SquareButtonAnchor>
+                  </a>
+                  <SquareButton
+                    onClick={() => handleMessaging(playerDetails.mobileNumber)}
+                  >
+                    Message
+                    <FaWhatsapp className="mx-2" />
+                  </SquareButton>
                 </div>
               </MDBCardBody>
             </MDBCard>
