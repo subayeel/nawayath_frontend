@@ -67,9 +67,6 @@ const TeamPage = () => {
         </MDBCol>
       </MDBRow>
       <MainWrapper style={{ flexDirection: "column" }}>
-        
-
-        <MDBCardHeader className="text-md-start">{team}</MDBCardHeader>
         <MDBContainer>{teamPlayers.map(displayPlayerCard)}</MDBContainer>
       </MainWrapper>
     </MainContainer>

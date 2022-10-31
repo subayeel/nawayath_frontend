@@ -1,13 +1,13 @@
 const risingStars = {
   imgUrl:
-    "https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fred-color&psig=AOvVaw0jojEGBm2ZMcdXXcqtl3oQ&ust=1667027220636000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJiqtbyugvsCFQAAAAAdAAAAABAJ",
+    "https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/ownerTeamLogo%2FIMG-20221031-WA0014.jpg?alt=media&token=6bfeae8b-4511-4e03-b85c-83ed807ea392",
   teamName: "Rising Star",
   onClickRoute: "/team-page/risingStar",
 };
-const nawayathBulls = {
+const nawayathFalcon = {
   imgUrl:
-    "https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/ownerTeamLogo%2FIMG-20221014-WA0118.jpg?alt=media&token=523625b1-e434-4b7e-9cc4-453373fd5954",
-  teamName: "Nawayath Bulls",
+    "https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/ownerTeamLogo%2FIMG-20221031-WA0013.jpg?alt=media&token=704f0ec3-1eae-4016-a544-cf00f7cb9878",
+  teamName: "Nawayath Falcons",
   onClickRoute: "/team-page/nawayathBulls",
 };
 const rasbaharChallengers = {
@@ -48,7 +48,7 @@ const sewn11 = {
 };
 export const teams = [
   risingStars,
-  nawayathBulls,
+  nawayathFalcon,
   rasbaharChallengers,
   mankiUnited,
   bangloreChallengers,
