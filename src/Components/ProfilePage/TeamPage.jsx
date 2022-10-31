@@ -4,7 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../config";
 import { useParams } from "react-router-dom";
 
-import PlayerCard from "./PlayerCard";
+import PublicPlayerCard from "./PublicPlayerCard";
 
 import { Link } from "react-router-dom";
 import {
@@ -27,11 +27,11 @@ const TeamPage = () => {
 
   function displayPlayerCard(props) {
     return (
-      <PlayerCard
+      <PublicPlayerCard
         teamName={team}
         biddingPoints={props.biddingPoints}
         playerId={props.playerId}
-      ></PlayerCard>
+      ></PublicPlayerCard>
     );
   }
 
