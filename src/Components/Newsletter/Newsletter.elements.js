@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { MDBInput } from "mdb-react-ui-kit";
+
 
 export const NewsletterContainer = styled.div`
   max-width: 1140px;
@@ -35,7 +37,7 @@ export const SignupContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    align-items: end;
+    
   }
 `;
 
@@ -45,7 +47,9 @@ export const TextfieldContainer = styled.div`
   align-items: center;
   justify-content: center;
   
-  
+  @media screen and (max-width:768px) {
+    flex-direction: column;
+  }
 `;
 export const TextField = styled.input.attrs({
   type: "text",
@@ -103,10 +107,11 @@ export const SignupBtn = styled.button`
   width: fit-content;
   color: white;
   background-color: #1b1a5a;
-  margin-left:14px;
+  margin:14px;
 
   &:hover {
     cursor: pointer;
     background-color: black;
   }
 `;
+

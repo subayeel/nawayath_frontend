@@ -29,8 +29,8 @@ import {MainContainer,MainWrapper} from "../Global"
 const OurTeam = () => {
   return (
     <>
-      <MainContainer>
-        <MainWrapper>
+      <MainContainer >
+        <MainWrapper style={{flexDirection:"column"}}>
           <HeadingContainer>
             <Heading>Who are we?</Heading>
             <Line></Line>

@@ -33,6 +33,7 @@ import AuctionHandler from "./Components/Admin/AuctionHandler";
 import PlayerProfile from "./Components/ProfilePage/PlayerProfile";
 import MyTeam from "./Components/ProfilePage/MyTeam"
 import LivePage from "./Components/Home/LivePage";
+import DayPage from "./Components/Home/DayPage";
 import Teams from "./Components/ProfilePage/Teams"
 import TeamPage from "./Components/ProfilePage/TeamPage";
 
@@ -146,6 +147,7 @@ function App() {
             {/* <Route path="/paymentsuccess" element={<PaymentSuccess />} /> */}
             <Route path="/ourteam" element={<OurTeam />} />
             <Route path="/live-page" element={<LivePage/>}/>
+            <Route path="/live-page/:day" element={<DayPage/>}/>
 
             {/* Owner Routes */}
             <Route

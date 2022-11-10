@@ -5,23 +5,21 @@ import {
   Heading,
   Info,
   SignupBtn,
-  SignupContainer,
-  TextfieldContainer,
+  TextfieldContainer
 } from "./Newsletter.elements";
 
 const Newsletter = () => {
   return (
     <>
       <MainContainer>
-        <MainWrapper>
+        <MainWrapper style={{ flexDirection: "column" }}>
           <Heading>STAY IN TOUCH</Heading>
           <Info>Sign up to hear from us about specials events.</Info>
-          <SignupContainer>
-            <TextfieldContainer>
-              <MDBInput label="Enter your email" />
-              <SignupBtn>Sign Up</SignupBtn>
-            </TextfieldContainer>
-          </SignupContainer>
+
+          <TextfieldContainer>
+            <MDBInput label="Enter your email" />
+            <SignupBtn>Sign Up</SignupBtn>
+          </TextfieldContainer>
         </MainWrapper>
       </MainContainer>
     </>

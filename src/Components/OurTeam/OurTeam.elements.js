@@ -114,6 +114,7 @@ export const Position = styled.p`
 `;
 
 export const HScrollWrapper = styled.div`
+  width:100%;
   overflow: auto;
   white-space: nowrap;
 
