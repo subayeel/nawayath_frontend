@@ -11,7 +11,7 @@ const LivePage = () => {
       <MainContainer>
         <MDBCard className="m-2">
           <MDBCardHeader className=" fs-3 text fw-bolder">
-            Day-1: Bangalore Challenger vs Sewn11
+            Day-1 
           </MDBCardHeader>
           <IFrame
             className="p-3"
