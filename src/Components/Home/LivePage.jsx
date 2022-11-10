@@ -1,25 +1,23 @@
 import React from "react";
 
-import { MainContainer, MainWrapper } from "../Global";
+import { MainContainer,  } from "../Global";
 
-import { MDBCardHeader, MDBCard, MDBContainer } from "mdb-react-ui-kit";
+import { MDBCardHeader, MDBCard } from "mdb-react-ui-kit";
 import { IFrame } from "./Home.elements";
 
 const LivePage = () => {
   return (
     <>
-      <MainContainer >
-        
-          <MDBCard className="m-2">
-            <MDBCardHeader className=" fs-3 text fw-bolder">
-              NCL-V Auction
-            </MDBCardHeader>
-            <IFrame
-              className="p-3"
-              src="https://www.youtube.com/embed/XJlcImJALaw"
-            ></IFrame>
-          </MDBCard>
-        
+      <MainContainer>
+        <MDBCard className="m-2">
+          <MDBCardHeader className=" fs-3 text fw-bolder">
+            NCL-V 
+          </MDBCardHeader>
+          <IFrame
+            className="p-3"
+            src="https://www.youtube.com/embed/O-jCdziXTO0"
+          ></IFrame>
+        </MDBCard>
       </MainContainer>
     </>
   );

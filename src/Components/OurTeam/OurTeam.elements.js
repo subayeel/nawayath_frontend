@@ -1,16 +1,6 @@
 import styled from "styled-components";
 
-export const OurTeamContainer = styled.div`
-  max-width: 1140px;
-  margin: 0 auto;
-`;
-export const OurTeamWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  @media screen and (max-width: 768px) {
-    padding: 0 14px;
-  }
-`;
+
 export const Line = styled.hr`
   flex: 3;
   height: 1px;

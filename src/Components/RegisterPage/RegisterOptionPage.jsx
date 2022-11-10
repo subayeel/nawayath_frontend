@@ -21,6 +21,8 @@ import {
   volunteerRegister,
 } from "../../Data/registerOptionData";
 import RegisterCard from "../RegisterPage/RegisterCard";
+
+import { MainContainer,MainWrapper } from "../Global";
 const RegisterOptionPage = () => {
   // to open the rules modal
   const [modalState, setModalState] = useState(false);
@@ -43,7 +45,7 @@ const RegisterOptionPage = () => {
   };
   return (
     <>
-      <RegisterOptionContainer>
+      <MainContainer>
         <Modal
           style={customStyles}
           onRequestClose={closeModal}
@@ -62,7 +64,7 @@ const RegisterOptionPage = () => {
             </HighlitedText>
           </ModalContent>
         </Modal>
-        <RegisterOptionWrapper>
+        <MainWrapper>
           <HeadingContainer>
             <Line></Line>
             <Heading>NCL-V-2022</Heading>
@@ -73,8 +75,8 @@ const RegisterOptionPage = () => {
             <RegisterCard {...ownerRegister} />
             <RegisterCard {...volunteerRegister} />
           </CardContainer>
-        </RegisterOptionWrapper>
-      </RegisterOptionContainer>
+        </MainWrapper>
+      </MainContainer>
     </>
   );
 };

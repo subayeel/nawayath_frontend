@@ -1,22 +1,23 @@
-import React from 'react'
-import Hero from '../Hero/Hero'
-import InfoSection from '../InfoSection/InfoSection'
-import MessageSection from '../MessageSection/MessageSection'
-import MissionSection from '../MissionSection/MissionSection'
-import Newsletter from '../Newsletter/Newsletter'
-import { heroSectionData } from '../../Data/heroSectionData'
+import React from "react";
+import InfoSection from "./InfoSection";
+import MessageSection from "../MessageSection/MessageSection";
+
+import Newsletter from "../Newsletter/Newsletter";
+import { heroSectionData } from "../../Data/heroSectionData";
+import { MainContainer, MainWrapper } from "../Global";
 
 const Home = () => {
   return (
     <>
-      {/* <Hero/> */}
-      <InfoSection {...heroSectionData}/>
-      <MessageSection/>
-      {/* <MissionSection/> */}
-      <Newsletter/>
-      
+      <MainContainer>
+        <MainWrapper style={{flexDirection:"column"}}>
+          <InfoSection {...heroSectionData} />
+          <MessageSection />
+          <Newsletter />
+        </MainWrapper>
+      </MainContainer>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

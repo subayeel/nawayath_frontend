@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { app } from "../../config";
+
 import "./Nav.css";
 import {
   Nav,
@@ -14,7 +13,7 @@ import {
   NavLinks,
   NavDropDown,
   DropdownContent,
-  DropDownItem,
+  
   BarsIcon,
   CloseIcon,
   Text3,
@@ -29,10 +28,10 @@ import {
 import Avatar from "./Avatar";
 import { authentication } from "../../config";
 
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import {  useLocation, useNavigate } from "react-router-dom";
 import { Button } from "../RegisterPage/RegisterPage.elements";
 
-function Navbar({ toggle, isOpen, setAuth, isAuth, imageUrl, isAdmin }) {
+function Navbar({ toggle, isOpen, isAuth, imageUrl, isAdmin }) {
   const navigate = useNavigate();
   const [isHome, setHome] = useState(true);
   const [rDropState, setRDropState] = useState(false);

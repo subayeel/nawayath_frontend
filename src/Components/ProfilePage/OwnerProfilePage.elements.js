@@ -9,7 +9,7 @@ import { MDBCard } from "mdb-react-ui-kit";
 export const SMDBCard = styled(MDBCard)`
   &:hover {
     transition: 0.1s;
-    transform: scale(1.01,1.01);
+    background-color: #1B1A55;
     cursor: pointer;
   }
 `;

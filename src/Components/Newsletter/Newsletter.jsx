@@ -1,11 +1,9 @@
 import { MDBInput } from "mdb-react-ui-kit";
 import React from "react";
+import { MainContainer, MainWrapper } from "../Global";
 import {
-  NewsletterContainer,
-  NewsletterWrapper,
   Heading,
   Info,
-  TextField,
   SignupBtn,
   SignupContainer,
   TextfieldContainer,
@@ -14,18 +12,18 @@ import {
 const Newsletter = () => {
   return (
     <>
-      <NewsletterContainer>
-        <NewsletterWrapper>
+      <MainContainer>
+        <MainWrapper>
           <Heading>STAY IN TOUCH</Heading>
           <Info>Sign up to hear from us about specials events.</Info>
           <SignupContainer>
             <TextfieldContainer>
-              <MDBInput label="Enter your email"/>
+              <MDBInput label="Enter your email" />
               <SignupBtn>Sign Up</SignupBtn>
             </TextfieldContainer>
           </SignupContainer>
-        </NewsletterWrapper>
-      </NewsletterContainer>
+        </MainWrapper>
+      </MainContainer>
     </>
   );
 };

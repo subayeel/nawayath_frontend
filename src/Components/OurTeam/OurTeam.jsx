@@ -1,8 +1,6 @@
 import React from "react";
 import MemberCard from "./MemberCard";
 import {
-  OurTeamContainer,
-  OurTeamWrapper,
   Line,
   Heading,
   Text2,
@@ -26,11 +24,13 @@ import {
   member9,
 } from "../../Data/memberData";
 
+import {MainContainer,MainWrapper} from "../Global"
+
 const OurTeam = () => {
   return (
     <>
-      <OurTeamContainer>
-        <OurTeamWrapper>
+      <MainContainer>
+        <MainWrapper>
           <HeadingContainer>
             <Heading>Who are we?</Heading>
             <Line></Line>
@@ -134,8 +134,8 @@ const OurTeam = () => {
             <MemberCard {...member1} />
             <MemberCard {...member1} />
           </HScrollWrapper> */}
-        </OurTeamWrapper>
-      </OurTeamContainer>
+        </MainWrapper>
+      </MainContainer>
     </>
   );
 };

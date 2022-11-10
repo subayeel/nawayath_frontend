@@ -3,11 +3,8 @@ import { useState } from "react";
 import { authentication } from "../../config";
 import { useNavigate } from "react-router-dom";
 import {
-  OtpField,
-  NumberField,
   TextfieldWrap,
-  LoginContainer,
-  LoginWrapper,
+  
   Heading,
   LoginForm,
   BtnWrap,
@@ -15,21 +12,16 @@ import {
   Color,
   OtpSentMessage,
   LoginButton,
-  OrLineContainer,
-  Line,
-  OrLine,
-  OrLineWrapper,
-  ImgWrapper,
-  Img,
+  
 } from "./OwnerLoginPage.elements";
-import { MDBInput, MDBBtn, MDBContainer } from "mdb-react-ui-kit";
+import { MDBInput,} from "mdb-react-ui-kit";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { useEffect } from "react";
+import {MainContainer,MainWrapper} from "../Global"
 
 const OwnerLoginPage = () => {
   const [otpState, setOtpState] = useState(false);
   const [mobileNumber, setMobileNumber] = useState("");
-  const [otpValue, setOtpValue] = useState(0);
   const [isOwnerNum, setIsOwnerNum] = useState(false);
   const navigate = useNavigate();
   const ownerNumbers = [
@@ -48,7 +40,7 @@ const OwnerLoginPage = () => {
   //auth variables
 
   const handleSendOtp = (e) => {
-    if (mobileNumber.toString().length == 13 && isOwnerNum) {
+    if (mobileNumber.toString().length === 13 && isOwnerNum) {
       setOtpState(true);
       generateRecaptcha();
       let appVerifier = window.recaptchaVerifier;
@@ -124,26 +116,26 @@ const OwnerLoginPage = () => {
     }
   };
 
-  const handleSignOut = () => {
-    authentication
-      .signOut()
-      .then(() => {
-        // Sign-out successful.
+  // const handleSignOut = () => {
+  //   authentication
+  //     .signOut()
+  //     .then(() => {
+  //       // Sign-out successful.
 
-        console.log("Logged out");
-      })
-      .catch((error) => {
-        // An error happened.
-        console.log(error);
-      });
-  };
+  //       console.log("Logged out");
+  //     })
+  //     .catch((error) => {
+  //       // An error happened.
+  //       console.log(error);
+  //     });
+  // };
 
   useEffect(() => {});
 
   return (
     <>
-      <LoginContainer>
-        <LoginWrapper>
+      <MainContainer>
+        <MainWrapper>
           <LoginForm>
             <TextWrap>
               <Heading>
@@ -188,8 +180,8 @@ const OwnerLoginPage = () => {
             </LoginButton> */}
             <div id="sendOTP"></div>
           </LoginForm>
-        </LoginWrapper>
-      </LoginContainer>
+        </MainWrapper>
+      </MainContainer>
     </>
   );
 };

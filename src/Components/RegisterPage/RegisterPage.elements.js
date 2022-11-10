@@ -263,17 +263,7 @@ export const TextWrap = styled.div`
   text-align: center;
 `;
 
-export const PaymentSuccessContainer = styled.div`
-  max-width: 1140px;
-  margin: 0 auto;
-`;
-export const PaymentSuccessWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  height: 95vh;
-`;
 export const SuccessText = styled.h1`
   font-weight: 400;
   letter-spacing: 1px;

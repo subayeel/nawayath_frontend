@@ -11,11 +11,11 @@ import {
   MDBBreadcrumb,
   MDBBreadcrumbItem,
   MDBCardSubTitle,
+  MDBBtn,
 } from "mdb-react-ui-kit";
 import { teams } from "../../Data/teams";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { MainContainer, MainWrapper } from "../Global";
 import { SMDBCard } from "./OwnerProfilePage.elements";
 
 const Teams = () => {
@@ -44,6 +44,11 @@ const Teams = () => {
                 fluid
               />
               <MDBCardSubTitle>{props.teamName}</MDBCardSubTitle>
+              <MDBContainer>
+              <MDBBtn className="mt-2" onClick={()=>{navigate(props.playingRoute)}}>View Team</MDBBtn>
+              {/* <MDBBtn className="mt-2" onClick={()=>{navigate(props.playingRoute)}}>Playing-11</MDBBtn> */}
+
+              </MDBContainer>
             </MDBCardBody>
           </SMDBCard>
         </MDBCol>

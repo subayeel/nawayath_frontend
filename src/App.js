@@ -21,12 +21,9 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import Sidebar from "./Components/SideBar/Sidebar";
 import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Components/Home/Home";
-import Footer from "./Components/LargeFooter/Footer";
-import PlayerRegisterPage from "./Components/RegisterPage/PlayerRegisterPage";
-import OwnerRegisterPage from "./Components/RegisterPage/OwnerRegisterPage";
-import VolunteerRegisterPage from "./Components/RegisterPage/VolunteerRegisterPage";
-import RegisterOptionPage from "./Components/RegisterPage/RegisterOptionPage";
-import PaymentSuccess from "./Components/RegisterPage/PaymentSuccess";
+import Footer from "./Components/Footer/Footer";
+
+
 import OurTeam from "./Components/OurTeam/OurTeam";
 import OwnerLoginPage from "./Components/LoginPage/OwnerLoginPage";
 import OwnerProfilePage from "./Components/ProfilePage/OwnerProfilePage";
@@ -140,10 +137,10 @@ function App() {
             <Route path="/" element={<Home />} />
             {/* <Route path="/player-register" element={<PlayerRegisterPage />} /> */}
             {/* <Route path="/owner-register" element={<OwnerRegisterPage />} /> */}
-            <Route
+            {/* <Route
               path="/volunteer-register"
               element={<VolunteerRegisterPage />}
-            />
+            /> */}
             {/* <Route path="/register-option" element={<RegisterOptionPage />} /> */}
             <Route path="/owner-login" element={<OwnerLoginPage />} />
             {/* <Route path="/paymentsuccess" element={<PaymentSuccess />} /> */}

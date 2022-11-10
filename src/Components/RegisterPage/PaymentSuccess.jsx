@@ -1,16 +1,8 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 
+import { collection, query, where, getDocs } from "firebase/firestore";
 import {
-  collection,
-  query,
-  where,
-  getDocs,
-  
-} from "firebase/firestore";
-import {
-  PaymentSuccessContainer,
-  PaymentSuccessWrapper,
   SuccessCard,
   ImgWrap,
   Img,
@@ -24,10 +16,9 @@ import {
 } from "./RegisterPage.elements";
 import { db } from "../../config";
 import { useEffect, useState } from "react";
+import { MainContainer, MainWrapper } from "../Global";
 
 const PaymentSuccess = () => {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
   let searchQuery = useSearchParams()[0];
   const reference = searchQuery.get("reference");
 
@@ -43,8 +34,8 @@ const PaymentSuccess = () => {
 
   return (
     <>
-      <PaymentSuccessContainer>
-        <PaymentSuccessWrapper>
+      <MainContainer>
+        <MainWrapper>
           <SuccessCard>
             <SuccessText>Payment Successful</SuccessText>
             <ImgWrap>
@@ -73,8 +64,8 @@ const PaymentSuccess = () => {
               <Text3>Please take screenshot for further reference</Text3>
             </Row>
           </SuccessCard>
-        </PaymentSuccessWrapper>
-      </PaymentSuccessContainer>
+        </MainWrapper>
+      </MainContainer>
     </>
   );
 };
