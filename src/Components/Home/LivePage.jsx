@@ -16,6 +16,7 @@ const LivePage = () => {
           <IFrame
             className="p-3"
             src="https://www.youtube.com/embed/O-jCdziXTO0"
+            allow="fullscreen;"
           ></IFrame>
         </MDBCard>
       </MainContainer>
