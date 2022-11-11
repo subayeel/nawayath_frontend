@@ -91,7 +91,7 @@ const DayPage = () => {
       </MDBRow>
       <MDBCard className="m-2">
         <MDBCardHeader className=" fs-3 text fw-bolder">
-          Day-{day[3]} Match paused due to rain
+          Day-{day[3]}
         </MDBCardHeader>
         {dayObj.liveLink === "" ? (
           ""
