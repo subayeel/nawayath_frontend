@@ -96,11 +96,11 @@ const DayPage = () => {
         {dayObj.liveLink === "" ? (
           ""
         ) : (
-          {/* <IFrame
+          <IFrame
             className="p-3"
             src={dayObj.liveLink}
             allow="fullscreen;"
-          ></IFrame> */}
+          ></IFrame>
           
         )}
       </MDBCard>
