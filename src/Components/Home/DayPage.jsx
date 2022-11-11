@@ -91,16 +91,17 @@ const DayPage = () => {
       </MDBRow>
       <MDBCard className="m-2">
         <MDBCardHeader className=" fs-3 text fw-bolder">
-          Day-{day[3]}
+          Day-{day[3]} Match Paused due to Prayer time
         </MDBCardHeader>
         {dayObj.liveLink === "" ? (
           ""
         ) : (
-          <IFrame
+          {/* <IFrame
             className="p-3"
             src={dayObj.liveLink}
             allow="fullscreen;"
-          ></IFrame>
+          ></IFrame> */}
+          
         )}
       </MDBCard>
       <MDBRow>{days.map(createDaysCard)}</MDBRow>
