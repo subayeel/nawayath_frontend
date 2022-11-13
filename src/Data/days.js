@@ -28,9 +28,9 @@ export const days = [
     imgUrl:
       "https://firebasestorage.googleapis.com/v0/b/nawayath-foundation-2c872.appspot.com/o/day4.png?alt=media&token=2616756c-3a2b-431f-9846-6dc54e724eb1",
     btnLink: "/live-page/day4",
-    liveLink: "",
+    liveLink: "https://www.youtube.com/embed/K0HM-StKCmg",
 
     text: "Day-4",
-    status: false,
+    status: true,
   },
 ];
