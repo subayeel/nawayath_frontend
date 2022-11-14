@@ -1,5 +1,6 @@
 {
   "name": "nawayath_foundation",
+  "homepage":"http://nawayathfoundation.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
